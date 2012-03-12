@@ -1,0 +1,22 @@
+Source: libfguid
+Section: unknown
+Priority: extra
+Maintainer: Joachim Metz <jbmetz@users.sourceforge.net>
+Build-Depends: debhelper (>= 7), autotools-dev
+Standards-Version: 3.8.3
+Homepage: https://sourceforge.net/projects/libfguid/
+
+Package: libfguid
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Library to support the GUID/UUID format
+ libfguid is a library to support the GUID/UUID format.
+
+Package: libfguid-dev
+Section: libdevel
+Architecture: any
+Depends: libfguid (= ${Source-Version})
+Description: Header files and libraries for developing applications for libfguid
+ Header files and libraries for developing applications for libfguid.
+

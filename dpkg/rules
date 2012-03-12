@@ -1,0 +1,61 @@
+#!/usr/bin/make -f
+# debian/rules that uses debhelper >= 7.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+
+%:
+	dh  $@
+
+install_libfguid:
+	# Set up libfguid package directories and files
+	mkdir -p debian/libfguid/usr/lib
+	install -p -m755 debian/tmp/usr/lib/lib*.so.*.*.* debian/libfguid/usr/lib
+
+install_libfguid_dev:
+	# Set up libfguid-dev package directories and files
+	mkdir -p debian/libfguid-dev/usr/include
+	mkdir -p debian/libfguid-dev/usr/include/libfguid
+	mkdir -p debian/libfguid-dev/usr/lib
+	mkdir -p debian/libfguid-dev/usr/lib/pkgconfig
+	mkdir -p debian/libfguid-dev/usr/share/man/man3
+	install -p -m755 debian/tmp/usr/include/*.h debian/libfguid-dev/usr/include
+	install -p -m755 debian/tmp/usr/include/libfguid/*.h debian/libfguid-dev/usr/include/libfguid
+	install -p -m755 debian/tmp/usr/lib/*.la debian/libfguid-dev/usr/lib
+	install -p -m755 debian/tmp/usr/lib/lib*.a debian/libfguid-dev/usr/lib
+	install -p -m755 debian/tmp/usr/lib/lib*.so debian/libfguid-dev/usr/lib
+	install -p -m755 debian/tmp/usr/lib/pkgconfig/* debian/libfguid-dev/usr/lib/pkgconfig
+	install -p -m755 debian/tmp/usr/share/man/man3/* debian/libfguid-dev/usr/share/man/man3
+
+override_dh_installinit: install_libfguid install_libfguid_dev
+
+override_dh_installmenu:
+
+override_dh_installmime:
+
+override_dh_installmodules:
+
+override_dh_installlogcheck:
+
+override_dh_installlogrotate:
+
+override_dh_installpam:
+
+override_dh_installppp:
+
+override_dh_installudev:
+
+override_dh_installwm:
+
+override_dh_installxfonts:
+
+override_dh_gconf:
+
+override_dh_icons:
+
+override_dh_perl:
+
