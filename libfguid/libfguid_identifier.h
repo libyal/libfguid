@@ -62,43 +62,50 @@ struct libfguid_internal_identifier
 	uint8_t node[ 6 ];
 };
 
-LIBFGUID_EXTERN int libfguid_identifier_initialize(
-                     libfguid_identifier_t **identifier,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_initialize(
+     libfguid_identifier_t **identifier,
+     liberror_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_identifier_free(
-                     libfguid_identifier_t **identifier,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_free(
+     libfguid_identifier_t **identifier,
+     liberror_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_identifier_copy_from_byte_stream(
-                     libfguid_identifier_t *identifier,
-                     const uint8_t *byte_stream,
-                     size_t byte_stream_size,
-                     uint8_t byte_order,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_byte_stream(
+     libfguid_identifier_t *identifier,
+     const uint8_t *byte_stream,
+     size_t byte_stream_size,
+     uint8_t byte_order,
+     liberror_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_identifier_get_string_size(
-                     libfguid_identifier_t *identifier,
-                     size_t *string_size,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_get_string_size(
+     libfguid_identifier_t *identifier,
+     size_t *string_size,
+     liberror_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_identifier_copy_to_utf8_string(
-                     libfguid_identifier_t *identifier,
-                     uint8_t *utf8_string,
-                     size_t utf8_string_size,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf8_string(
+     libfguid_identifier_t *identifier,
+     uint8_t *utf8_string,
+     size_t utf8_string_size,
+     liberror_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_identifier_copy_to_utf16_string(
-                     libfguid_identifier_t *identifier,
-                     uint16_t *utf16_string,
-                     size_t utf16_string_size,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf16_string(
+     libfguid_identifier_t *identifier,
+     uint16_t *utf16_string,
+     size_t utf16_string_size,
+     liberror_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_identifier_copy_to_utf32_string(
-                     libfguid_identifier_t *identifier,
-                     uint32_t *utf32_string,
-                     size_t utf32_string_size,
-                     liberror_error_t **error );
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf32_string(
+     libfguid_identifier_t *identifier,
+     uint32_t *utf32_string,
+     size_t utf32_string_size,
+     liberror_error_t **error );
 
 #if defined( __cplusplus )
 }

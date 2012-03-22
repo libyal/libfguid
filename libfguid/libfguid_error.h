@@ -39,26 +39,31 @@ extern "C" {
 
 #if !defined( HAVE_LOCAL_LIBFGUID )
 
-LIBFGUID_EXTERN void libfguid_error_free(
-                      libfguid_error_t **error );
+LIBFGUID_EXTERN \
+void libfguid_error_free(
+      libfguid_error_t **error );
 
-LIBFGUID_EXTERN int libfguid_error_fprint(
-                     libfguid_error_t *error,
-                         FILE *stream );
+LIBFGUID_EXTERN \
+int libfguid_error_fprint(
+     libfguid_error_t *error,
+     FILE *stream );
 
-LIBFGUID_EXTERN int libfguid_error_sprint(
-                     libfguid_error_t *error,
-                     char *string,
-                     size_t size );
+LIBFGUID_EXTERN \
+int libfguid_error_sprint(
+     libfguid_error_t *error,
+     char *string,
+     size_t size );
 
-LIBFGUID_EXTERN int libfguid_error_backtrace_fprint(
-                     libfguid_error_t *error,
-                     FILE *stream );
+LIBFGUID_EXTERN \
+int libfguid_error_backtrace_fprint(
+     libfguid_error_t *error,
+     FILE *stream );
 
-LIBFGUID_EXTERN int libfguid_error_backtrace_sprint(
-                     libfguid_error_t *error,
-                     char *string,
-                     size_t size );
+LIBFGUID_EXTERN \
+int libfguid_error_backtrace_sprint(
+     libfguid_error_t *error,
+     char *string,
+     size_t size );
 
 #endif
 

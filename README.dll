@@ -29,11 +29,6 @@ make library
 You should end up with the following DLL:
 libfguid-<version>/libfguid/.libs/cygfguid-0.dll
 
-Older versions of Cygwin might require e2fsprogs for libuuid support
-Install the e2fsprogs package and run the commands as following:
-LDFLAGS=-L/usr/lib/e2fsprogs ./configure
-make library
-
 
 Creating a DLL using Microsoft Visual Studio C++
 To create a DLL using Microsoft Visual Studio C++ you'll need:
@@ -41,8 +36,6 @@ To create a DLL using Microsoft Visual Studio C++ you'll need:
   The provided Visual Studio project files were created using
   the 2008 express version. The express verion is available on the
   Microsoft website
-* Microsoft Windows SDK (if not already included) for the Windows Crypto API
-  The Windows SDK is available on the Microsoft website
 
 Make sure to check if your build environment defines the correct WINVER for your build.
 The code uses WINAPI version specific functions based on WINVER.
@@ -63,7 +56,7 @@ libfguid/.libs/libfguid-<version>.dll
 
 
 Using the DLL
-Make sure you use define LIBFDATETIME_DLL_IMPORT before including <libfguid.h>,
+Make sure you use define LIBFGUID_DLL_IMPORT before including <libfguid.h>,
 
 When the DLL was build with Microsoft Visual Studio, you'll also need the Microsoft Visual Studio redistributable DLLs
 to run on other platforms than the build platform.

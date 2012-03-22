@@ -1,9 +1,9 @@
-.Dd January  2, 2012
+.Dd March 14, 2012
 .Dt libfguid 3
 .Os libfguid
 .Sh NAME
 .Nm libfguid.h
-.Nd Library to support various date and time formats that are used in file formats
+.Nd Library to support the GUID/UUID forma
 .Sh LIBRARY
 .Lb libfguid
 .Sh SYNOPSIS
@@ -25,43 +25,21 @@ Error functions
 .Ft int
 .Fn libfguid_error_backtrace_sprint "libfguid_error_t *error, char *string, size_t size"
 .Pp
-FAT date and time functions
+Identifier functions
 .Ft int
-.Fn libfguid_fat_date_time_initialize " libfguid_fat_date_time_t **fat_date_time, libfguid_error_t **error"
+.Fn libfguid_identifier_initialize "libfguid_identifier_t **identifier, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_fat_date_time_free " libfguid_fat_date_time_t **fat_date_time, libfguid_error_t **error"
+.Fn libfguid_identifier_free "libfguid_identifier_t **identifier, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_fat_date_time_copy_from_byte_stream " libfguid_fat_date_time_t *fat_date_time, uint8_t *byte_stream, size_t byte_stream_size, uint8_t byte_order, libfguid_error_t **error"
+.Fn libfguid_identifier_copy_from_byte_stream "libfguid_identifier_t *identifier, const uint8_t *byte_stream, size_t byte_stream_size, uint8_t byte_order, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_fat_date_time_copy_from_uint32 " libfguid_fat_date_time_t *fat_date_time, uint32_t value_32bit, libfguid_error_t **error"
+.Fn libfguid_identifier_get_string_size "libfguid_identifier_t *identifier, size_t *string_size, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_fat_date_time_get_string_size " libfguid_fat_date_time_t *fat_date_time, size_t *string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
+.Fn libfguid_identifier_copy_to_utf8_string "libfguid_identifier_t *identifier, uint8_t *utf8_string, size_t utf8_string_size, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_fat_date_time_copy_to_utf8_string " libfguid_fat_date_time_t *fat_date_time, uint8_t *utf8_string, size_t utf8_string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
+.Fn libfguid_identifier_copy_to_utf16_string "libfguid_identifier_t *identifier, uint16_t *utf16_string, size_t utf16_string_size, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_fat_date_time_copy_to_utf16_string " libfguid_fat_date_time_t *fat_date_time, uint16_t *utf16_string, size_t utf16_string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_fat_date_time_copy_to_utf32_string " libfguid_fat_date_time_t *fat_date_time, uint32_t *utf32_string, size_t utf32_string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
-.Pp
-Filetime functions
-.Ft int
-.Fn libfguid_filetime_initialize "libfguid_filetime_t **filetime, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_free "libfguid_filetime_t **filetime, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_add "libfguid_filetime_t *filetime, libfguid_filetime_t *additional_filetime, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_copy_from_byte_stream "libfguid_filetime_t *filetime, uint8_t *byte_stream, size_t byte_stream_size, uint8_t byte_order, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_copy_from_64bit "libfguid_filetime_t *filetime, uint64_t value_64bit, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_get_string_size "libfguid_filetime_t *filetime, size_t *string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_copy_to_utf8_string "libfguid_filetime_t *filetime, uint8_t *utf8_string, size_t utf8_string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_copy_to_utf16_string "libfguid_filetime_t *filetime, uint16_t *utf16_string, size_t utf16_string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
-.Ft int
-.Fn libfguid_filetime_copy_to_utf32_string "libfguid_filetime_t *filetime, uint32_t *utf32_string, size_t utf32_string_size, uint8_t string_format_flags, int date_time_format, libfguid_error_t **error"
+.Fn libfguid_identifier_copy_to_utf32_string "libfguid_identifier_t *identifier, uint32_t *utf32_string, size_t utf32_string_size, libfguid_error_t **error"
 .Sh DESCRIPTION
 The
 .Fn libfguid_get_version
@@ -73,17 +51,6 @@ None
 .Sh FILES
 None
 .Sh NOTES
-libfguid allows to be compiled with wide character support.
-To compile libfguid with wide character support use
-.Ar ./configure --enable-wide-character-type=yes
-or pass the definition
-.Ar HAVE_WIDE_CHARACTER_TYPE
- to the compiler (i.e. in case of Microsoft Visual Studio (MSVS) C++).
-
-To have other code to determine if libfguid was compiled with wide character support it defines
-.Ar LIBPFF_WIDE_CHARACTER_TYPE
- in libfguid/features.h.
-
 .Sh BUGS
 Please report bugs of any kind to <jbmetz@users.sourceforge.net> or on the project website:
 http://libfdata.sourceforge.net/

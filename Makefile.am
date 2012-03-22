@@ -7,7 +7,8 @@ SUBDIRS = \
 	liberror \
 	libfguid \
 	po \
-	manuals
+	manuals \
+	tests
 
 DPKG_FILES = \
 	dpkg/changelog \

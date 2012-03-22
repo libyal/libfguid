@@ -1,5 +1,5 @@
 /*
- * Support functions
+ * The libfguid header wrapper
  *
  * Copyright (c) 2010-2012, Joachim Metz <jbmetz@users.sourceforge.net>
  *
@@ -19,29 +19,19 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _LIBFGUID_SUPPORT_H )
-#define _LIBFGUID_SUPPORT_H
+#if !defined( _FGUID_TEST_LIBFGUID_H )
+#define _FGUID_TEST_LIBFGUID_H
 
 #include <common.h>
-#include <types.h>
 
-#include "libfguid_extern.h"
-
-#if defined( __cplusplus )
-extern "C" {
+/* If libtool DLL support is enabled set LIBFGUID_DLL_IMPORT
+ * before including libfguid.h
+ */
+#if defined( _WIN32 ) && defined( DLL_IMPORT )
+#define LIBFGUID_DLL_IMPORT
 #endif
 
-#if !defined( HAVE_LOCAL_LIBFGUID )
-
-LIBFGUID_EXTERN \
-const char *libfguid_get_version(
-             void );
-
-#endif
-
-#if defined( __cplusplus )
-}
-#endif
+#include <libfguid.h>
 
 #endif
 

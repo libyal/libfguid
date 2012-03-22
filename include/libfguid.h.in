@@ -25,7 +25,6 @@
 #include <libfguid/definitions.h>
 #include <libfguid/error.h>
 #include <libfguid/extern.h>
-#include <libfguid/features.h>
 #include <libfguid/types.h>
 
 #include <stdio.h>
@@ -91,198 +90,77 @@ int libfguid_error_backtrace_sprint(
      size_t size );
 
 /* -------------------------------------------------------------------------
- * FAT date and time functions
+ * Identifier functions
  * ------------------------------------------------------------------------- */
 
-/* Initialize a FAT date and time
- * Make sure the value file is pointing to is set to NULL
+/* Initialize an identifier
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_initialize(
-     libfguid_fat_date_time_t **fat_date_time,
+int libfguid_identifier_initialize(
+     libfguid_identifier_t **identifier,
      libfguid_error_t **error );
 
-/* Frees a FAT date and time
+/* Frees an identifier
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_free(
-     libfguid_fat_date_time_t **fat_date_time,
+int libfguid_identifier_free(
+     libfguid_identifier_t **identifier,
      libfguid_error_t **error );
 
-/* Converts a byte stream into a FAT date and time
+/* Frees an identifier
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_copy_from_byte_stream(
-     libfguid_fat_date_time_t *fat_date_time,
+int libfguid_identifier_copy_from_byte_stream(
+     libfguid_identifier_t *identifier,
      const uint8_t *byte_stream,
      size_t byte_stream_size,
      uint8_t byte_order,
      libfguid_error_t **error );
 
-/* Converts a 32-bit value into a FAT date and time
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_fat_date_time_copy_from_uint32(
-     libfguid_fat_date_time_t *fat_date_time,
-     uint32_t value_32bit,
-     libfguid_error_t **error );
-
-/* Deterimes the size of the string for the fat date time
+/* Deterimes the size of the string for the identifier
  * The string size includes the end of string character
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_get_string_size(
-     libfguid_fat_date_time_t *fat_date_time,
+int libfguid_identifier_get_string_size(
+     libfguid_identifier_t *identifier,
      size_t *string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
      libfguid_error_t **error );
 
-/* Converts the FAT date and time into an UTF-8 string
+/* Converts the identifier into an UTF-8 string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_copy_to_utf8_string(
-     libfguid_fat_date_time_t *fat_date_time,
+int libfguid_identifier_copy_to_utf8_string(
+     libfguid_identifier_t *identifier,
      uint8_t *utf8_string,
      size_t utf8_string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
      libfguid_error_t **error );
 
-/* Converts the FAT date and time into an UTF-16 string
+/* Converts the identifier into an UTF-16 string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_copy_to_utf16_string(
-     libfguid_fat_date_time_t *fat_date_time,
+int libfguid_identifier_copy_to_utf16_string(
+     libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
      size_t utf16_string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
      libfguid_error_t **error );
 
-/* Converts the FAT date and time into an UTF-16 string
+/* Converts the identifier into an UTF-32 string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \
-int libfguid_fat_date_time_copy_to_utf32_string(
-     libfguid_fat_date_time_t *fat_date_time,
+int libfguid_identifier_copy_to_utf32_string(
+     libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
-     libfguid_error_t **error );
-
-/* -------------------------------------------------------------------------
- * Filetime functions
- * ------------------------------------------------------------------------- */
-
-/* Initialize a filetime
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_initialize(
-     libfguid_filetime_t **filetime,
-     libfguid_error_t **error );
-
-/* Frees a filetime
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_free(
-     libfguid_filetime_t **filetime,
-     libfguid_error_t **error );
-
-/* Adds the additional filetime to the filetime
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_add(
-     libfguid_filetime_t *filetime,
-     libfguid_filetime_t *additional_filetime,
-     libfguid_error_t **error );
-
-/* Converts a byte stream into a filetime
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_copy_from_byte_stream(
-     libfguid_filetime_t *filetime,
-     const uint8_t *byte_stream,
-     size_t byte_stream_size,
-     uint8_t byte_order,
-     libfguid_error_t **error );
-
-/* Converts a 64-bit value into a filetime
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_copy_from_64bit(
-     libfguid_filetime_t *filetime,
-     uint64_t value_64bit,
-     libfguid_error_t **error );
-
-/* Deterimes the size of the string for the filetime
- * The string size includes the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_get_string_size(
-     libfguid_filetime_t *filetime,
-     size_t *string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
-     libfguid_error_t **error );
-
-/* Converts the filetime into a string
- * The strings is encoded in UTF-8
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_copy_to_utf8_string(
-     libfguid_filetime_t *filetime,
-     uint8_t *utf8_string,
-     size_t utf8_string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
-     libfguid_error_t **error );
-
-/* Converts the filetime into a string
- * The strings is encoded in UTF-16
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_copy_to_utf16_string(
-     libfguid_filetime_t *filetime,
-     uint16_t *utf16_string,
-     size_t utf16_string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
-     libfguid_error_t **error );
-
-/* Converts the filetime into a string
- * The strings is encoded in UTF-32
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFGUID_EXTERN \
-int libfguid_filetime_copy_to_utf32_string(
-     libfguid_filetime_t *filetime,
-     uint32_t *utf32_string,
-     size_t utf32_string_size,
-     uint8_t string_format_flags,
-     int date_time_format,
      libfguid_error_t **error );
 
 #if defined( __cplusplus )

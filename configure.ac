@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfguid],
- [20120312],
+ [20120314],
  [jbmetz@users.sourceforge.net])
 
 AC_CONFIG_SRCDIR(
@@ -86,6 +86,7 @@ AC_CONFIG_FILES([libfguid/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([po/Makevars])
 AC_CONFIG_FILES([manuals/Makefile])
+AC_CONFIG_FILES([tests/Makefile])
 dnl Have configure make the include files
 AC_CONFIG_FILES([include/libfguid.h])
 AC_CONFIG_FILES([include/libfguid/definitions.h])
