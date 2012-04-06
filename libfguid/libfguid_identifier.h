@@ -25,9 +25,8 @@
 #include <common.h>
 #include <types.h>
 
-#include <liberror.h>
-
 #include "libfguid_extern.h"
+#include "libfguid_libcerror.h"
 #include "libfguid_types.h"
 
 #if defined( __cplusplus )
@@ -65,12 +64,12 @@ struct libfguid_internal_identifier
 LIBFGUID_EXTERN \
 int libfguid_identifier_initialize(
      libfguid_identifier_t **identifier,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
 int libfguid_identifier_free(
      libfguid_identifier_t **identifier,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
 int libfguid_identifier_copy_from_byte_stream(
@@ -78,34 +77,34 @@ int libfguid_identifier_copy_from_byte_stream(
      const uint8_t *byte_stream,
      size_t byte_stream_size,
      uint8_t byte_order,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
 int libfguid_identifier_get_string_size(
      libfguid_identifier_t *identifier,
      size_t *string_size,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
 int libfguid_identifier_copy_to_utf8_string(
      libfguid_identifier_t *identifier,
      uint8_t *utf8_string,
      size_t utf8_string_size,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
 int libfguid_identifier_copy_to_utf16_string(
      libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
      size_t utf16_string_size,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
 int libfguid_identifier_copy_to_utf32_string(
      libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
-     liberror_error_t **error );
+     libcerror_error_t **error );
 
 #if defined( __cplusplus )
 }

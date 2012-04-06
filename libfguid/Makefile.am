@@ -1,23 +1,27 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	-I$(top_srcdir)/libcstring \
-	-I$(top_srcdir)/liberror \
+	@LIBCSTRING_CPPFLAGS@ \
+	@LIBCERROR_CPPFLAGS@ \
 	@MEMWATCH_CPPFLAGS@
 
 lib_LTLIBRARIES = libfguid.la
 
 libfguid_la_SOURCES = \
+	libfguid.c \
 	libfguid_definitions.h \
 	libfguid_extern.h \
 	libfguid_error.c libfguid_error.h \
+	libfguid_libcerror.h \
+	libfguid_libcstring.h \
 	libfguid_identifier.c libfguid_identifier.h \
 	libfguid_support.c libfguid_support.h \
-	libfguid_types.h
+	libfguid_types.h \
+	libfguid_unused.h
 
 libfguid_la_LIBADD = \
-	../libcstring/libcstring.la \
-	../liberror/liberror.la
+	@LIBCSTRING_LIBADD@ \
+	@LIBCERROR_LIBADD@
 
 libfguid_la_LDFLAGS = -no-undefined -version-info 1:0:0
 

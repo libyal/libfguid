@@ -22,14 +22,14 @@
 #include <common.h>
 #include <types.h>
 
-#include <libcstring.h>
-
 #if defined( HAVE_STDLIB_H ) || defined( WINAPI )
 #include <stdlib.h>
 #endif
 
 #include <stdio.h>
 
+#include "fguid_test_libcerror.h"
+#include "fguid_test_libcstring.h"
 #include "fguid_test_libfguid.h"
 
 /* Tests copying a GUID to a string
@@ -41,8 +41,8 @@ int fguid_test_identifier_to_string(
      size_t guid_string_size,
      int expected_result )
 {
-	libfguid_error_t *error = NULL;
-	int result              = 0;
+	libcerror_error_t *error = NULL;
+	int result               = 0;
 
         fprintf(
          stdout,
@@ -109,8 +109,8 @@ int main( int argc, char * const argv[] )
 
 	uint8_t byte_stream[ 16 ] = { 0xba, 0x8f, 0x0d, 0x45, 0x25, 0xad, 0xd0, 0x11, 0x98, 0xa8, 0x08, 0x00, 0x36, 0x1b, 0x11, 0x03 };
 
+	libcerror_error_t *error    = NULL;
 	libfguid_identifier_t *guid = NULL;
-	libfguid_error_t *error     = NULL;
 
 	if( argc != 1 )
 	{
@@ -218,10 +218,10 @@ int main( int argc, char * const argv[] )
 on_error:
 	if( error != NULL )
 	{
-		libfguid_error_backtrace_fprint(
+		libcerror_error_backtrace_fprint(
 		 error,
 		 stderr );
-		libfguid_error_free(
+		libcerror_error_free(
 		 &error );
 	}
 	if( guid != NULL )

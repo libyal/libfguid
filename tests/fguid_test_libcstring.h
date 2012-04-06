@@ -1,5 +1,5 @@
 /*
- * Support functions
+ * The internal libcstring header
  *
  * Copyright (c) 2010-2012, Joachim Metz <jbmetz@users.sourceforge.net>
  *
@@ -19,23 +19,37 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#if !defined( _FGUID_TEST_LIBCSTRING_H )
+#define _FGUID_TEST_LIBCSTRING_H
+
 #include <common.h>
-#include <types.h>
 
-#include <stdio.h>
-
-#include "libfguid_definitions.h"
-#include "libfguid_support.h"
-
-#if !defined( HAVE_LOCAL_LIBFGUID )
-
-/* Returns the library version as a string
+/* Define HAVE_LOCAL_LIBCSTRING for local use of libcstring
  */
-const char *libfguid_get_version(
-             void )
-{
-	return( (const char *) LIBFGUID_VERSION_STRING );
-}
+#if defined( HAVE_LOCAL_LIBCSTRING )
+
+#include <libcstring_codepage.h>
+#include <libcstring_definitions.h>
+#include <libcstring_locale.h>
+#include <libcstring_narrow_string.h>
+#include <libcstring_system_string.h>
+#include <libcstring_types.h>
+#include <libcstring_wide_string.h>
+
+#elif defined( HAVE_LIBCSTRING_H )
+
+/* If libtool DLL support is enabled set LIBCSTRING_DLL_IMPORT
+ * before including libcstring.h
+ */
+#if defined( _WIN32 ) && defined( DLL_IMPORT )
+#define LIBCSTRING_DLL_IMPORT
+#endif
+
+#include <libcstring.h>
+
+#else
+#error Missing libcstring.h
+#endif
 
 #endif
 

@@ -5,9 +5,25 @@ Creating and using a DLL
 
 Creating a DLL
 There are multiple methods of creating a DLL:
+* using CodeGear
 * using Cygwin
 * using Microsoft Visual Studio C++
 * using MingW
+
+
+Creating a DLL using CodeGear
+To create a DLL using CodeGear you'll need:
+* Embarcadero CodeGear C++ Builder
+  The provided CodeGear project files were created using the 2009
+  version. Note that some version of CodeGear have a broken
+  compiler/linker and you'll need to turn off code optimization
+  to be able to build libfguid.
+
+Make sure to check if your build environment defines the correct WINVER for your build.
+The code uses WINAPI version specific functions based on WINVER.
+You can define a custom WINVER in the CodeGear project files or in libfguid-<version>/common/config_borlandc.h
+
+You should be able to build the DLL using the provided project files.
 
 
 Creating a DLL using Cygwin

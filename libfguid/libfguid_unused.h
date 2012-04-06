@@ -1,7 +1,7 @@
 /*
- * Configuration file for Borland/CodeGear C++ Builder compiler
+ * The internal unused definition
  *
- * Copyright (c) 2006-2012, Joachim Metz <jbmetz@users.sourceforge.net>
+ * Copyright (c) 2010-2012, Joachim Metz <jbmetz@users.sourceforge.net>
  *
  * Refer to AUTHORS for acknowledgements.
  *
@@ -19,30 +19,26 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _CONFIG_BORLANDC_H )
-#define _CONFIG_BORLANDC_H
+#if !defined( _LIBFGUID_INTERNAL_UNUSED_H )
+#define _LIBFGUID_INTERNAL_UNUSED_H
 
-/* Define to the address where bug reports for this package should be sent.
- */
-#define PACKAGE_BUGREPORT "jbmetz@users.sourceforge.net"
+#include <common.h>
 
-/* Define the size of the wide character for WINAPI
- */
-#if !defined( SIZEOF_WCHAR_T )
-#define SIZEOF_WCHAR_T          2
+#if !defined( LIBFGUID_ATTRIBUTE_UNUSED )
+#if defined( __GNUC__ ) && __GNUC__ >= 3
+#define LIBFGUID_ATTRIBUTE_UNUSED	__attribute__ ((__unused__))
+#else
+#define LIBFGUID_ATTRIBUTE_UNUSED
+#endif
 #endif
 
-/* Use the C Runtime (CRT) functions instead of the WINAPI functions
-#define USE_CRT_FUNCTIONS	1
- */
-
-/* Enable verbose output
-#define HAVE_VERBOSE_OUTPUT     1
- */
-
-/* Enable debug output
-#define HAVE_DEBUG_OUTPUT       1
- */
+#if defined( _MSC_VER )
+#define LIBFGUID_UNREFERENCED_PARAMETER( parameter ) \
+	UNREFERENCED_PARAMETER( parameter );
+#else
+#define LIBFGUID_UNREFERENCED_PARAMETER( parameter ) \
+	/* parameter */
+#endif
 
 #endif
 

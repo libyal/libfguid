@@ -1,9 +1,9 @@
 TODO
-* add msvscpp files
-* add borland files
-  - update README.dll
 * add support for retrieving identifier values
   - add test
+
+20120406
+* updated dependencies
 
 20120314
 * worked on adding tests

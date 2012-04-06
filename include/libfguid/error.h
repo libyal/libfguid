@@ -33,10 +33,10 @@ typedef intptr_t libfguid_error_t;
 enum LIBFGUID_ERROR_DOMAINS
 {
 	LIBFGUID_ERROR_DOMAIN_ARGUMENTS			= (int) 'a',
-	LIBFGUID_ERROR_DOMAIN_CONVERSION			= (int) 'c',
-	LIBFGUID_ERROR_DOMAIN_COMPRESSION			= (int) 'C',
-	LIBFGUID_ERROR_DOMAIN_IO				= (int) 'I',
-	LIBFGUID_ERROR_DOMAIN_INPUT				= (int) 'i',
+	LIBFGUID_ERROR_DOMAIN_CONVERSION		= (int) 'c',
+	LIBFGUID_ERROR_DOMAIN_COMPRESSION		= (int) 'C',
+	LIBFGUID_ERROR_DOMAIN_IO			= (int) 'I',
+	LIBFGUID_ERROR_DOMAIN_INPUT			= (int) 'i',
 	LIBFGUID_ERROR_DOMAIN_MEMORY			= (int) 'm',
 	LIBFGUID_ERROR_DOMAIN_OUTPUT			= (int) 'o',
 	LIBFGUID_ERROR_DOMAIN_RUNTIME			= (int) 'r',
@@ -59,7 +59,7 @@ enum LIBFGUID_ARGUMENT_ERROR
 
 	/* The argument contains a value zero or less
 	 */
-	LIBFGUID_ARGUMENT_ERROR_VALUE_ZERO_OR_LESS		= 3,
+	LIBFGUID_ARGUMENT_ERROR_VALUE_ZERO_OR_LESS	= 3,
 
 	/* The argument contains a value that exceeds the maximum
 	 * for the specific type
@@ -76,26 +76,23 @@ enum LIBFGUID_ARGUMENT_ERROR
 
 	/* The argument contains a value that is out of bounds
 	 */
-	LIBFGUID_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS		= 7,
+	LIBFGUID_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS	= 7,
 
 	/* The argument contains a value that is not supported
 	 */
-	LIBFGUID_ARGUMENT_ERROR_UNSUPPORTED_VALUE		= 8,
+	LIBFGUID_ARGUMENT_ERROR_UNSUPPORTED_VALUE	= 8,
 
 	/* The argument contains a value that conficts with another argument
 	 */
-	LIBFGUID_ARGUMENT_ERROR_CONFLICTING_VALUE		= 9
+	LIBFGUID_ARGUMENT_ERROR_CONFLICTING_VALUE	= 9
 };
-
-/* TODO deprecated remove after a while */
-#define LIBFGUID_ARGUMENT_ERROR_VALUE_OUT_OF_RANGE	LIBFGUID_ARGUMENT_ERROR_VALUE_OUT_OF_BOUNDS
 
 /* The conversion error codes
  * to signify errors regarding conversions
  */
 enum LIBFGUID_CONVERSION_ERROR
 {
-	LIBFGUID_CONVERSION_ERROR_GENERIC			= 0,
+	LIBFGUID_CONVERSION_ERROR_GENERIC		= 0,
 
 	/* The conversion failed on the input
 	 */
@@ -111,26 +108,23 @@ enum LIBFGUID_CONVERSION_ERROR
  */
 enum LIBFGUID_COMPRESSION_ERROR
 {
-	LIBFGUID_COMPRESSION_ERROR_GENERIC			= 0,
+	LIBFGUID_COMPRESSION_ERROR_GENERIC		= 0,
 
 	/* The compression failed
 	 */
-	LIBFGUID_COMPRESSION_ERROR_COMPRESS_FAILED		= 1,
+	LIBFGUID_COMPRESSION_ERROR_COMPRESS_FAILED	= 1,
 
 	/* The decompression failed
 	 */
 	LIBFGUID_COMPRESSION_ERROR_DECOMPRESS_FAILED	= 2
 };
 
-/* TODO deprecated remove after a while */
-#define LIBERROR_COMPRESSION_ERROR_UNCOMPRESS_FAILED	LIBERROR_COMPRESSION_ERROR_DECOMPRESS_FAILED
-
 /* The input/output error codes
  * to signify errors regarding input/output
  */
 enum LIBFGUID_IO_ERROR
 {
-	LIBFGUID_IO_ERROR_GENERIC				= 0,
+	LIBFGUID_IO_ERROR_GENERIC			= 0,
 
 	/* The open failed
 	 */
@@ -158,7 +152,7 @@ enum LIBFGUID_IO_ERROR
 
 	/* The resource is invalid i.e. a missing file
 	 */
-	LIBFGUID_IO_ERROR_INVALID_RESOURCE			= 7,
+	LIBFGUID_IO_ERROR_INVALID_RESOURCE		= 7,
 
 	/* The ioctl failed
 	 */
@@ -178,7 +172,7 @@ enum LIBFGUID_INPUT_ERROR
 
 	/* The input contains invalid data
 	 */
-	LIBFGUID_INPUT_ERROR_INVALID_DATA			= 1,
+	LIBFGUID_INPUT_ERROR_INVALID_DATA		= 1,
 
 	/* The input contains an unsupported signature
 	 */
@@ -191,11 +185,8 @@ enum LIBFGUID_INPUT_ERROR
 	/* A value in the input did not match a previously
 	 * read value or calculated value
 	 */
-	LIBFGUID_INPUT_ERROR_VALUE_MISMATCH			= 4
+	LIBFGUID_INPUT_ERROR_VALUE_MISMATCH		= 4
 };
-
-/* TODO deprecated remove after a while */
-#define LIBFGUID_INPUT_ERROR_CRC_MISMATCH			LIBFGUID_INPUT_ERROR_CHECKSUM_MISMATCH
 
 /* The memory error codes
  * to signify errors regarding memory
@@ -206,15 +197,15 @@ enum LIBFGUID_MEMORY_ERROR
 
 	/* There is insufficient memory available
 	 */
-	LIBFGUID_MEMORY_ERROR_INSUFFICIENT			= 1,
+	LIBFGUID_MEMORY_ERROR_INSUFFICIENT		= 1,
 
 	/* The memory failed to be copied
 	 */
-	LIBFGUID_MEMORY_ERROR_COPY_FAILED			= 2,
+	LIBFGUID_MEMORY_ERROR_COPY_FAILED		= 2,
 
 	/* The memory failed to be set
 	 */
-	LIBFGUID_MEMORY_ERROR_SET_FAILED			= 3
+	LIBFGUID_MEMORY_ERROR_SET_FAILED		= 3
 };
 
 /* The runtime error codes
@@ -230,11 +221,11 @@ enum LIBFGUID_RUNTIME_ERROR
 
 	/* The value was already set
 	 */
-	LIBFGUID_RUNTIME_ERROR_VALUE_ALREADY_SET		= 2,
+	LIBFGUID_RUNTIME_ERROR_VALUE_ALREADY_SET	= 2,
 
 	/* The creation and/or initialization of an internal structure failed
 	 */
-	LIBFGUID_RUNTIME_ERROR_INITIALIZE_FAILED		= 3,
+	LIBFGUID_RUNTIME_ERROR_INITIALIZE_FAILED	= 3,
 
 	/* The resize of an internal structure failed
 	 */
@@ -246,11 +237,11 @@ enum LIBFGUID_RUNTIME_ERROR
 
 	/* The value could not be determined
 	 */
-	LIBFGUID_RUNTIME_ERROR_GET_FAILED			= 6,
+	LIBFGUID_RUNTIME_ERROR_GET_FAILED		= 6,
 
 	/* The value could not be set
 	 */
-	LIBFGUID_RUNTIME_ERROR_SET_FAILED			= 7,
+	LIBFGUID_RUNTIME_ERROR_SET_FAILED		= 7,
 
 	/* The value could not be appended/prepended
 	 */
@@ -258,7 +249,7 @@ enum LIBFGUID_RUNTIME_ERROR
 
 	/* The value could not be copied
 	 */
-	LIBFGUID_RUNTIME_ERROR_COPY_FAILED			= 9,
+	LIBFGUID_RUNTIME_ERROR_COPY_FAILED		= 9,
 
 	/* The value could not be removed
 	 */
@@ -266,11 +257,11 @@ enum LIBFGUID_RUNTIME_ERROR
 
 	/* The value could not be printed
 	 */
-	LIBFGUID_RUNTIME_ERROR_PRINT_FAILED			= 11,
+	LIBFGUID_RUNTIME_ERROR_PRINT_FAILED		= 11,
 
 	/* The value was out of bounds
 	 */
-	LIBFGUID_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS		= 12,
+	LIBFGUID_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS	= 12,
 
 	/* The value exceeds the maximum for its specific type
 	 */
@@ -278,15 +269,12 @@ enum LIBFGUID_RUNTIME_ERROR
 
 	/* The value is unsupported
 	 */
-	LIBFGUID_RUNTIME_ERROR_UNSUPPORTED_VALUE		= 14,
+	LIBFGUID_RUNTIME_ERROR_UNSUPPORTED_VALUE	= 14,
 
 	/* An abort was requested
 	 */
 	LIBFGUID_RUNTIME_ERROR_ABORT_REQUESTED		= 15
 };
-
-/* TODO deprecated remove after a while */
-#define LIBFGUID_RUNTIME_ERROR_VALUE_OUT_OF_RANGE	LIBFGUID_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS
 
 /* The output error codes
  */
@@ -296,7 +284,7 @@ enum LIBFGUID_OUTPUT_ERROR
 
 	/* There is insuficient space to write the output
 	 */
-	LIBFGUID_OUTPUT_ERROR_INSUFFICIENT_SPACE		= 1
+	LIBFGUID_OUTPUT_ERROR_INSUFFICIENT_SPACE	= 1
 };
 
 #endif

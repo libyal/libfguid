@@ -1,7 +1,8 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	-I$(top_srcdir)/libcstring \
+	@LIBCSTRING_CPPFLAGS@ \
+	@LIBCERROR_CPPFLAGS@ \
 	@MEMWATCH_CPPFLAGS@
 
 TESTS = \
@@ -20,20 +21,26 @@ check_PROGRAMS = \
 	fguid_test_identifier_to_string
 
 fguid_test_identifier_copy_from_SOURCES = \
+	fguid_test_libcerror.h \
+	fguid_test_libcstring.h \
 	fguid_test_libfguid.h \
 	fguid_test_identifier_copy_from.c
 
 fguid_test_identifier_copy_from_LDADD = \
-	../libcstring/libcstring.la \
+	@LIBCSTRING_LIBADD@ \
+	@LIBCERROR_LIBADD@ \
 	../libfguid/libfguid.la \
         @MEMWATCH_LIBADD@
 
 fguid_test_identifier_to_string_SOURCES = \
+	fguid_test_libcerror.h \
+	fguid_test_libcstring.h \
 	fguid_test_libfguid.h \
 	fguid_test_identifier_to_string.c
 
 fguid_test_identifier_to_string_LDADD = \
-	../libcstring/libcstring.la \
+	@LIBCSTRING_LIBADD@ \
+	@LIBCERROR_LIBADD@ \
 	../libfguid/libfguid.la \
         @MEMWATCH_LIBADD@
 

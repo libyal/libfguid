@@ -24,10 +24,9 @@
 #include <memory.h>
 #include <types.h>
 
-#include <liberror.h>
-
 #include "libfguid_definitions.h"
 #include "libfguid_identifier.h"
+#include "libfguid_libcerror.h"
 #include "libfguid_types.h"
 
 /* Initialize an identifier
@@ -35,17 +34,17 @@
  */
 int libfguid_identifier_initialize(
      libfguid_identifier_t **identifier,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_initialize";
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -53,10 +52,10 @@ int libfguid_identifier_initialize(
 	}
 	if( *identifier != NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_RUNTIME,
-		 LIBERROR_RUNTIME_ERROR_VALUE_ALREADY_SET,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_ALREADY_SET,
 		 "%s: invalid identifier value already set.",
 		 function );
 
@@ -67,10 +66,10 @@ int libfguid_identifier_initialize(
 
 	if( internal_identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_MEMORY,
-		 LIBERROR_MEMORY_ERROR_INSUFFICIENT,
+		 LIBCERROR_ERROR_DOMAIN_MEMORY,
+		 LIBCERROR_MEMORY_ERROR_INSUFFICIENT,
 		 "%s: unable to create identifier.",
 		 function );
 
@@ -81,10 +80,10 @@ int libfguid_identifier_initialize(
 	     0,
 	     sizeof( libfguid_internal_identifier_t ) ) == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_MEMORY,
-		 LIBERROR_MEMORY_ERROR_SET_FAILED,
+		 LIBCERROR_ERROR_DOMAIN_MEMORY,
+		 LIBCERROR_MEMORY_ERROR_SET_FAILED,
 		 "%s: unable to clear identifier.",
 		 function );
 
@@ -108,17 +107,17 @@ on_error:
  */
 int libfguid_identifier_free(
      libfguid_identifier_t **identifier,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_free";
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -143,17 +142,17 @@ int libfguid_identifier_copy_from_byte_stream(
      const uint8_t *byte_stream,
      size_t byte_stream_size,
      uint8_t byte_order,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_from_byte_stream";
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -163,10 +162,10 @@ int libfguid_identifier_copy_from_byte_stream(
 
 	if( byte_stream == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid byte stream.",
 		 function );
 
@@ -174,10 +173,10 @@ int libfguid_identifier_copy_from_byte_stream(
 	}
 	if( byte_stream_size < 16 )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
 		 "%s: byte stream too small.",
 		 function );
 
@@ -185,10 +184,10 @@ int libfguid_identifier_copy_from_byte_stream(
 	}
 	if( byte_stream_size > (size_t) SSIZE_MAX )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
 		 "%s: byte stream size exceeds maximum.",
 		 function );
 
@@ -197,10 +196,10 @@ int libfguid_identifier_copy_from_byte_stream(
 	if( ( byte_order != LIBFGUID_ENDIAN_BIG )
 	 && ( byte_order != LIBFGUID_ENDIAN_LITTLE ) )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_UNSUPPORTED_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_UNSUPPORTED_VALUE,
 		 "%s: unsupported byte order.",
 		 function );
 
@@ -265,16 +264,16 @@ int libfguid_identifier_copy_from_byte_stream(
 int libfguid_identifier_get_string_size(
      libfguid_identifier_t *identifier,
      size_t *string_size,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	static char *function = "libfguid_identifier_get_string_size";
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -282,10 +281,10 @@ int libfguid_identifier_get_string_size(
 	}
 	if( string_size == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid string size.",
 		 function );
 
@@ -304,7 +303,7 @@ int libfguid_identifier_copy_to_utf8_string(
      libfguid_identifier_t *identifier,
      uint8_t *utf8_string,
      size_t utf8_string_size,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_to_utf8_string";
@@ -315,10 +314,10 @@ int libfguid_identifier_copy_to_utf8_string(
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -328,10 +327,10 @@ int libfguid_identifier_copy_to_utf8_string(
 
 	if( utf8_string == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid UTF-8 size.",
 		 function );
 
@@ -339,10 +338,10 @@ int libfguid_identifier_copy_to_utf8_string(
 	}
 	if( utf8_string_size > (size_t) SSIZE_MAX )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
 		 "%s: UTF-8 string size exceeds maximum.",
 		 function );
 
@@ -350,10 +349,10 @@ int libfguid_identifier_copy_to_utf8_string(
 	}
 	if( utf8_string_size < 37 )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
 		 "%s: UTF-8 string is too small.",
 		 function );
 
@@ -492,7 +491,7 @@ int libfguid_identifier_copy_to_utf16_string(
      libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
      size_t utf16_string_size,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_to_utf16_string";
@@ -503,10 +502,10 @@ int libfguid_identifier_copy_to_utf16_string(
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -516,10 +515,10 @@ int libfguid_identifier_copy_to_utf16_string(
 
 	if( utf16_string == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid UTF-16 size.",
 		 function );
 
@@ -527,10 +526,10 @@ int libfguid_identifier_copy_to_utf16_string(
 	}
 	if( utf16_string_size > (size_t) SSIZE_MAX )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
 		 "%s: UTF-16 string size exceeds maximum.",
 		 function );
 
@@ -538,10 +537,10 @@ int libfguid_identifier_copy_to_utf16_string(
 	}
 	if( utf16_string_size < 37 )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
 		 "%s: UTF-16 string is too small.",
 		 function );
 
@@ -680,7 +679,7 @@ int libfguid_identifier_copy_to_utf32_string(
      libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
-     liberror_error_t **error )
+     libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_to_utf32_string";
@@ -691,10 +690,10 @@ int libfguid_identifier_copy_to_utf32_string(
 
 	if( identifier == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid identifier.",
 		 function );
 
@@ -704,10 +703,10 @@ int libfguid_identifier_copy_to_utf32_string(
 
 	if( utf32_string == NULL )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
 		 "%s: invalid UTF-32 size.",
 		 function );
 
@@ -715,10 +714,10 @@ int libfguid_identifier_copy_to_utf32_string(
 	}
 	if( utf32_string_size > (size_t) SSIZE_MAX )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_EXCEEDS_MAXIMUM,
 		 "%s: UTF-32 string size exceeds maximum.",
 		 function );
 
@@ -726,10 +725,10 @@ int libfguid_identifier_copy_to_utf32_string(
 	}
 	if( utf32_string_size < 37 )
 	{
-		liberror_error_set(
+		libcerror_error_set(
 		 error,
-		 LIBERROR_ERROR_DOMAIN_ARGUMENTS,
-		 LIBERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_VALUE_TOO_SMALL,
 		 "%s: UTF-32 string is too small.",
 		 function );
 
