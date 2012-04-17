@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfguid],
- [20120408],
+ [20120417],
  [jbmetz@users.sourceforge.net])
 
 AC_CONFIG_SRCDIR(

@@ -141,6 +141,18 @@ int libfguid_identifier_copy_to_utf8_string(
      size_t utf8_string_size,
      libfguid_error_t **error );
 
+/* Converts the identifier into an UTF-8 string
+ * The string size should include the end of string character
+ * Returns 1 if successful or -1 on error
+ */
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf8_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint8_t *utf8_string,
+     size_t utf8_string_size,
+     size_t *utf8_string_index,
+     libfguid_error_t **error );
+
 /* Converts the identifier into an UTF-16 string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
@@ -152,6 +164,18 @@ int libfguid_identifier_copy_to_utf16_string(
      size_t utf16_string_size,
      libfguid_error_t **error );
 
+/* Converts the identifier into an UTF-16 string
+ * The string size should include the end of string character
+ * Returns 1 if successful or -1 on error
+ */
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf16_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint16_t *utf16_string,
+     size_t utf16_string_size,
+     size_t *utf16_string_index,
+     libfguid_error_t **error );
+
 /* Converts the identifier into an UTF-32 string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
@@ -161,6 +185,18 @@ int libfguid_identifier_copy_to_utf32_string(
      libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
+     libfguid_error_t **error );
+
+/* Converts the identifier into an UTF-32 string
+ * The string size should include the end of string character
+ * Returns 1 if successful or -1 on error
+ */
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf32_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint32_t *utf32_string,
+     size_t utf32_string_size,
+     size_t *utf32_string_index,
      libfguid_error_t **error );
 
 #if defined( __cplusplus )

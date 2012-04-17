@@ -305,8 +305,41 @@ int libfguid_identifier_copy_to_utf8_string(
      size_t utf8_string_size,
      libcerror_error_t **error )
 {
+	static char *function    = "libfguid_identifier_copy_to_utf8_string";
+	size_t utf8_string_index = 0;
+
+	if( libfguid_identifier_copy_to_utf8_string_with_index(
+	     identifier,
+	     utf8_string,
+	     utf8_string_size,
+	     &utf8_string_index,
+	     error ) != 1 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_COPY_FAILED,
+		 "%s: unable to copy identifier to UTF-8 string.",
+		 function );
+
+		return( -1 );
+	}
+	return( 1 );
+}
+
+/* Converts the identifier into an UTF-8 string
+ * The string size should include the end of string character
+ * Returns 1 if successful or -1 on error
+ */
+int libfguid_identifier_copy_to_utf8_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint8_t *utf8_string,
+     size_t utf8_string_size,
+     size_t *utf8_string_index,
+     libcerror_error_t **error )
+{
 	libfguid_internal_identifier_t *internal_identifier = NULL;
-	static char *function                               = "libfguid_identifier_copy_to_utf8_string";
+	static char *function                               = "libfguid_identifier_copy_to_utf8_string_with_index";
 	size_t string_index                                 = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
@@ -331,7 +364,7 @@ int libfguid_identifier_copy_to_utf8_string(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
 		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid UTF-8 size.",
+		 "%s: invalid UTF-8.",
 		 function );
 
 		return( -1 );
@@ -347,7 +380,18 @@ int libfguid_identifier_copy_to_utf8_string(
 
 		return( -1 );
 	}
-	if( utf8_string_size < 37 )
+	if( utf8_string_index == NULL )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 "%s: invalid UTF-8 index.",
+		 function );
+
+		return( -1 );
+	}
+	if( ( *utf8_string_index + 37 ) > utf8_string_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -358,6 +402,8 @@ int libfguid_identifier_copy_to_utf8_string(
 
 		return( -1 );
 	}
+	string_index = *utf8_string_index;
+
 	byte_shift = 28;
 
 	do
@@ -480,6 +526,8 @@ int libfguid_identifier_copy_to_utf8_string(
 	}
 	utf8_string[ string_index++ ] = 0;
 
+	*utf8_string_index = string_index;
+
 	return( 1 );
 }
 
@@ -493,8 +541,41 @@ int libfguid_identifier_copy_to_utf16_string(
      size_t utf16_string_size,
      libcerror_error_t **error )
 {
+	static char *function     = "libfguid_identifier_copy_to_utf16_string";
+	size_t utf16_string_index = 0;
+
+	if( libfguid_identifier_copy_to_utf16_string_with_index(
+	     identifier,
+	     utf16_string,
+	     utf16_string_size,
+	     &utf16_string_index,
+	     error ) != 1 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_COPY_FAILED,
+		 "%s: unable to copy identifier to UTF-16 string.",
+		 function );
+
+		return( -1 );
+	}
+	return( 1 );
+}
+
+/* Converts the identifier into an UTF-16 string
+ * The string size should include the end of string character
+ * Returns 1 if successful or -1 on error
+ */
+int libfguid_identifier_copy_to_utf16_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint16_t *utf16_string,
+     size_t utf16_string_size,
+     size_t *utf16_string_index,
+     libcerror_error_t **error )
+{
 	libfguid_internal_identifier_t *internal_identifier = NULL;
-	static char *function                               = "libfguid_identifier_copy_to_utf16_string";
+	static char *function                               = "libfguid_identifier_copy_to_utf16_string_with_index";
 	size_t string_index                                 = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
@@ -519,7 +600,7 @@ int libfguid_identifier_copy_to_utf16_string(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
 		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid UTF-16 size.",
+		 "%s: invalid UTF-16.",
 		 function );
 
 		return( -1 );
@@ -535,7 +616,18 @@ int libfguid_identifier_copy_to_utf16_string(
 
 		return( -1 );
 	}
-	if( utf16_string_size < 37 )
+	if( utf16_string_index == NULL )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 "%s: invalid UTF-16 index.",
+		 function );
+
+		return( -1 );
+	}
+	if( ( *utf16_string_index + 37 ) > utf16_string_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -546,6 +638,8 @@ int libfguid_identifier_copy_to_utf16_string(
 
 		return( -1 );
 	}
+	string_index = *utf16_string_index;
+
 	byte_shift = 28;
 
 	do
@@ -668,6 +762,8 @@ int libfguid_identifier_copy_to_utf16_string(
 	}
 	utf16_string[ string_index++ ] = 0;
 
+	*utf16_string_index = string_index;
+
 	return( 1 );
 }
 
@@ -681,8 +777,41 @@ int libfguid_identifier_copy_to_utf32_string(
      size_t utf32_string_size,
      libcerror_error_t **error )
 {
+	static char *function     = "libfguid_identifier_copy_to_utf32_string";
+	size_t utf32_string_index = 0;
+
+	if( libfguid_identifier_copy_to_utf32_string_with_index(
+	     identifier,
+	     utf32_string,
+	     utf32_string_size,
+	     &utf32_string_index,
+	     error ) != 1 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_COPY_FAILED,
+		 "%s: unable to copy identifier to UTF-32 string.",
+		 function );
+
+		return( -1 );
+	}
+	return( 1 );
+}
+
+/* Converts the identifier into an UTF-32 string
+ * The string size should include the end of string character
+ * Returns 1 if successful or -1 on error
+ */
+int libfguid_identifier_copy_to_utf32_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint32_t *utf32_string,
+     size_t utf32_string_size,
+     size_t *utf32_string_index,
+     libcerror_error_t **error )
+{
 	libfguid_internal_identifier_t *internal_identifier = NULL;
-	static char *function                               = "libfguid_identifier_copy_to_utf32_string";
+	static char *function                               = "libfguid_identifier_copy_to_utf32_string_with_index";
 	size_t string_index                                 = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
@@ -707,7 +836,7 @@ int libfguid_identifier_copy_to_utf32_string(
 		 error,
 		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
 		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
-		 "%s: invalid UTF-32 size.",
+		 "%s: invalid UTF-32.",
 		 function );
 
 		return( -1 );
@@ -723,7 +852,18 @@ int libfguid_identifier_copy_to_utf32_string(
 
 		return( -1 );
 	}
-	if( utf32_string_size < 37 )
+	if( utf32_string_index == NULL )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_ARGUMENTS,
+		 LIBCERROR_ARGUMENT_ERROR_INVALID_VALUE,
+		 "%s: invalid UTF-32 index.",
+		 function );
+
+		return( -1 );
+	}
+	if( ( *utf32_string_index + 37 ) > utf32_string_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -734,6 +874,8 @@ int libfguid_identifier_copy_to_utf32_string(
 
 		return( -1 );
 	}
+	string_index = *utf32_string_index;
+
 	byte_shift = 28;
 
 	do
@@ -855,6 +997,8 @@ int libfguid_identifier_copy_to_utf32_string(
 		while( byte_shift >= 0 );
 	}
 	utf32_string[ string_index++ ] = 0;
+
+	*utf32_string_index = string_index;
 
 	return( 1 );
 }

@@ -93,6 +93,14 @@ int libfguid_identifier_copy_to_utf8_string(
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf8_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint8_t *utf8_string,
+     size_t utf8_string_size,
+     size_t *utf8_string_index,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
 int libfguid_identifier_copy_to_utf16_string(
      libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
@@ -100,10 +108,26 @@ int libfguid_identifier_copy_to_utf16_string(
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf16_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint16_t *utf16_string,
+     size_t utf16_string_size,
+     size_t *utf16_string_index,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
 int libfguid_identifier_copy_to_utf32_string(
      libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_utf32_string_with_index(
+     libfguid_identifier_t *identifier,
+     uint32_t *utf32_string,
+     size_t utf32_string_size,
+     size_t *utf32_string_index,
      libcerror_error_t **error );
 
 #if defined( __cplusplus )

@@ -1,4 +1,4 @@
-.Dd March 14, 2012
+.Dd April 17, 2012
 .Dt libfguid 3
 .Os libfguid
 .Sh NAME
@@ -35,11 +35,17 @@ Identifier functions
 .Ft int
 .Fn libfguid_identifier_get_string_size "libfguid_identifier_t *identifier, size_t *string_size, libfguid_error_t **error"
 .Ft int
+.Fn libfguid_identifier_copy_to_utf8_string_with_index "libfguid_identifier_t *identifier, uint8_t *utf8_string, size_t utf8_string_size, size_t* utf8_string_index, libfguid_error_t **error"
+.Ft int
 .Fn libfguid_identifier_copy_to_utf8_string "libfguid_identifier_t *identifier, uint8_t *utf8_string, size_t utf8_string_size, libfguid_error_t **error"
 .Ft int
 .Fn libfguid_identifier_copy_to_utf16_string "libfguid_identifier_t *identifier, uint16_t *utf16_string, size_t utf16_string_size, libfguid_error_t **error"
 .Ft int
+.Fn libfguid_identifier_copy_to_utf16_string_with_index "libfguid_identifier_t *identifier, uint16_t *utf16_string, size_t utf16_string_size, size_t* utf16_string_index, libfguid_error_t **error"
+.Ft int
 .Fn libfguid_identifier_copy_to_utf32_string "libfguid_identifier_t *identifier, uint32_t *utf32_string, size_t utf32_string_size, libfguid_error_t **error"
+.Ft int
+.Fn libfguid_identifier_copy_to_utf32_string_with_index "libfguid_identifier_t *identifier, uint32_t *utf32_string, size_t utf32_string_size, size_t* utf32_string_index, libfguid_error_t **error"
 .Sh DESCRIPTION
 The
 .Fn libfguid_get_version
