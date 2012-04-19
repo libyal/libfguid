@@ -134,7 +134,7 @@ int libfguid_identifier_free(
 	return( 1 );
 }
 
-/* Converts a byte stream into an identifier
+/* Copies the identifier from a byte stream
  * Returns 1 if successful or -1 on error
  */
 int libfguid_identifier_copy_from_byte_stream(
@@ -257,16 +257,18 @@ int libfguid_identifier_copy_from_byte_stream(
 	return( 1 );
 }
 
-/* Deterimes the size of the string for the identifier
+/* Retrieves the size of an UTF-8 encoded string of the identifier
  * The string size includes the end of string character
  * Returns 1 if successful or -1 on error
  */
 int libfguid_identifier_get_string_size(
      libfguid_identifier_t *identifier,
      size_t *string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
-	static char *function = "libfguid_identifier_get_string_size";
+	static char *function    = "libfguid_identifier_get_string_size";
+	uint32_t supported_flags = 0;
 
 	if( identifier == NULL )
 	{
@@ -290,12 +292,32 @@ int libfguid_identifier_get_string_size(
 
 		return( -1 );
 	}
+	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+
+	if( ( string_format_flags & supported_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: unsupported string format flags: 0x%08" PRIx32 ".",
+		 function,
+		 string_format_flags );
+
+		return( -1 );
+	}
 	*string_size = 37;
 
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		*string_size += 2;
+	}
 	return( 1 );
 }
 
-/* Converts the identifier into an UTF-8 string
+/* Copies the identifier to an UTF-8 encoded string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
@@ -303,6 +325,7 @@ int libfguid_identifier_copy_to_utf8_string(
      libfguid_identifier_t *identifier,
      uint8_t *utf8_string,
      size_t utf8_string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
 	static char *function    = "libfguid_identifier_copy_to_utf8_string";
@@ -313,6 +336,7 @@ int libfguid_identifier_copy_to_utf8_string(
 	     utf8_string,
 	     utf8_string_size,
 	     &utf8_string_index,
+	     string_format_flags,
 	     error ) != 1 )
 	{
 		libcerror_error_set(
@@ -327,7 +351,7 @@ int libfguid_identifier_copy_to_utf8_string(
 	return( 1 );
 }
 
-/* Converts the identifier into an UTF-8 string
+/* Copies the identifier to an UTF-8 encoded string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
@@ -336,11 +360,14 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
      uint8_t *utf8_string,
      size_t utf8_string_size,
      size_t *utf8_string_index,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_to_utf8_string_with_index";
 	size_t string_index                                 = 0;
+	size_t string_size                                  = 0;
+	uint32_t supported_flags                            = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
 	int8_t byte_shift                                   = 0;
@@ -391,7 +418,31 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 
 		return( -1 );
 	}
-	if( ( *utf8_string_index + 37 ) > utf8_string_size )
+	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+
+	if( ( string_format_flags & supported_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: unsupported string format flags: 0x%08" PRIx32 ".",
+		 function,
+		 string_format_flags );
+
+		return( -1 );
+	}
+	string_size = 37;
+
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		string_size += 2;
+	}
+	string_index = *utf8_string_index;
+
+	if( ( string_index + string_size ) > utf8_string_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -402,8 +453,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 
 		return( -1 );
 	}
-	string_index = *utf8_string_index;
-
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		utf8_string[ string_index++ ] = (uint8_t) '{';
+	}
 	byte_shift = 28;
 
 	do
@@ -413,6 +466,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -434,6 +491,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
+		}
 		else
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'a' + byte_value - 10;
@@ -453,6 +514,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -474,6 +539,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
+		}
 		else
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'a' + byte_value - 10;
@@ -491,6 +560,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -516,6 +589,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 			{
 				utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 			}
+			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+			{
+				utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
+			}
 			else
 			{
 				utf8_string[ string_index++ ] = (uint8_t) 'a' + byte_value - 10;
@@ -524,6 +601,10 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		}
 		while( byte_shift >= 0 );
 	}
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		utf8_string[ string_index++ ] = (uint8_t) '}';
+	}
 	utf8_string[ string_index++ ] = 0;
 
 	*utf8_string_index = string_index;
@@ -531,7 +612,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 	return( 1 );
 }
 
-/* Converts the identifier into an UTF-16 string
+/* Copies the identifier to an UTF-16 encoded string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
@@ -539,6 +620,7 @@ int libfguid_identifier_copy_to_utf16_string(
      libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
      size_t utf16_string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
 	static char *function     = "libfguid_identifier_copy_to_utf16_string";
@@ -549,6 +631,7 @@ int libfguid_identifier_copy_to_utf16_string(
 	     utf16_string,
 	     utf16_string_size,
 	     &utf16_string_index,
+	     string_format_flags,
 	     error ) != 1 )
 	{
 		libcerror_error_set(
@@ -563,7 +646,7 @@ int libfguid_identifier_copy_to_utf16_string(
 	return( 1 );
 }
 
-/* Converts the identifier into an UTF-16 string
+/* Copies the identifier to an UTF-16 encoded string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
@@ -572,11 +655,14 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
      uint16_t *utf16_string,
      size_t utf16_string_size,
      size_t *utf16_string_index,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_to_utf16_string_with_index";
 	size_t string_index                                 = 0;
+	size_t string_size                                  = 0;
+	uint32_t supported_flags                            = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
 	int8_t byte_shift                                   = 0;
@@ -627,7 +713,31 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 
 		return( -1 );
 	}
-	if( ( *utf16_string_index + 37 ) > utf16_string_size )
+	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+
+	if( ( string_format_flags & supported_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: unsupported string format flags: 0x%08" PRIx32 ".",
+		 function,
+		 string_format_flags );
+
+		return( -1 );
+	}
+	string_size = 37;
+
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		string_size += 2;
+	}
+	string_index = *utf16_string_index;
+
+	if( ( string_index + string_size ) > utf16_string_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -637,6 +747,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		 function );
 
 		return( -1 );
+	}
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		utf16_string[ string_index++ ] = (uint16_t) '{';
 	}
 	string_index = *utf16_string_index;
 
@@ -649,6 +763,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -670,6 +788,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
+		}
 		else
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'a' + byte_value - 10;
@@ -689,6 +811,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -710,6 +836,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
+		}
 		else
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'a' + byte_value - 10;
@@ -727,6 +857,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -752,6 +886,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 			{
 				utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 			}
+			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+			{
+				utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
+			}
 			else
 			{
 				utf16_string[ string_index++ ] = (uint16_t) 'a' + byte_value - 10;
@@ -760,6 +898,10 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		}
 		while( byte_shift >= 0 );
 	}
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		utf16_string[ string_index++ ] = (uint16_t) '}';
+	}
 	utf16_string[ string_index++ ] = 0;
 
 	*utf16_string_index = string_index;
@@ -767,7 +909,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 	return( 1 );
 }
 
-/* Converts the identifier into an UTF-32 string
+/* Copies the identifier to an UTF-32 encoded string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
@@ -775,6 +917,7 @@ int libfguid_identifier_copy_to_utf32_string(
      libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
 	static char *function     = "libfguid_identifier_copy_to_utf32_string";
@@ -785,6 +928,7 @@ int libfguid_identifier_copy_to_utf32_string(
 	     utf32_string,
 	     utf32_string_size,
 	     &utf32_string_index,
+	     string_format_flags,
 	     error ) != 1 )
 	{
 		libcerror_error_set(
@@ -799,7 +943,7 @@ int libfguid_identifier_copy_to_utf32_string(
 	return( 1 );
 }
 
-/* Converts the identifier into an UTF-32 string
+/* Copies the identifier to an UTF-32 encoded string
  * The string size should include the end of string character
  * Returns 1 if successful or -1 on error
  */
@@ -808,11 +952,14 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
      uint32_t *utf32_string,
      size_t utf32_string_size,
      size_t *utf32_string_index,
+     uint32_t string_format_flags,
      libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
 	static char *function                               = "libfguid_identifier_copy_to_utf32_string_with_index";
 	size_t string_index                                 = 0;
+	size_t string_size                                  = 0;
+	uint32_t supported_flags                            = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
 	int8_t byte_shift                                   = 0;
@@ -863,7 +1010,31 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 
 		return( -1 );
 	}
-	if( ( *utf32_string_index + 37 ) > utf32_string_size )
+	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+
+	if( ( string_format_flags & supported_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: unsupported string format flags: 0x%08" PRIx32 ".",
+		 function,
+		 string_format_flags );
+
+		return( -1 );
+	}
+	string_size = 37;
+
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		string_size += 2;
+	}
+	string_index = *utf32_string_index;
+
+	if( ( string_index + string_size ) > utf32_string_size )
 	{
 		libcerror_error_set(
 		 error,
@@ -873,6 +1044,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		 function );
 
 		return( -1 );
+	}
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		utf32_string[ string_index++ ] = (uint32_t) '{';
 	}
 	string_index = *utf32_string_index;
 
@@ -885,6 +1060,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -906,6 +1085,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
+		}
 		else
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'a' + byte_value - 10;
@@ -925,6 +1108,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -946,6 +1133,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
+		}
 		else
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'a' + byte_value - 10;
@@ -963,6 +1154,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		if( byte_value <= 9 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
+		}
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		{
+			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
 		else
 		{
@@ -988,6 +1183,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 			{
 				utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 			}
+			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+			{
+				utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
+			}
 			else
 			{
 				utf32_string[ string_index++ ] = (uint32_t) 'a' + byte_value - 10;
@@ -995,6 +1194,10 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 			byte_shift -= 4;
 		}
 		while( byte_shift >= 0 );
+	}
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	{
+		utf32_string[ string_index++ ] = (uint32_t) '}';
 	}
 	utf32_string[ string_index++ ] = 0;
 

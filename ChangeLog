@@ -2,6 +2,9 @@ TODO
 * add support for retrieving identifier values
   - add test
 
+20120418
+* added format flags
+
 20120417
 * updated dependencies
 * added with index functions

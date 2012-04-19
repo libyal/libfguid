@@ -83,6 +83,7 @@ LIBFGUID_EXTERN \
 int libfguid_identifier_get_string_size(
      libfguid_identifier_t *identifier,
      size_t *string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
@@ -90,6 +91,7 @@ int libfguid_identifier_copy_to_utf8_string(
      libfguid_identifier_t *identifier,
      uint8_t *utf8_string,
      size_t utf8_string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
@@ -98,6 +100,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
      uint8_t *utf8_string,
      size_t utf8_string_size,
      size_t *utf8_string_index,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
@@ -105,6 +108,7 @@ int libfguid_identifier_copy_to_utf16_string(
      libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
      size_t utf16_string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
@@ -113,6 +117,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
      uint16_t *utf16_string,
      size_t utf16_string_size,
      size_t *utf16_string_index,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
@@ -120,6 +125,7 @@ int libfguid_identifier_copy_to_utf32_string(
      libfguid_identifier_t *identifier,
      uint32_t *utf32_string,
      size_t utf32_string_size,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
@@ -128,6 +134,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
      uint32_t *utf32_string,
      size_t utf32_string_size,
      size_t *utf32_string_index,
+     uint32_t string_format_flags,
      libcerror_error_t **error );
 
 #if defined( __cplusplus )

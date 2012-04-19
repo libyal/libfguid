@@ -39,6 +39,7 @@ int fguid_test_identifier_to_string(
      libfguid_identifier_t *guid,
      libcstring_system_character_t *guid_string,
      size_t guid_string_size,
+     uint32_t string_format_flags,
      int expected_result )
 {
 	libcerror_error_t *error = NULL;
@@ -55,12 +56,14 @@ int fguid_test_identifier_to_string(
 		  guid,
 		  (uint16_t *) guid_string,
 		  guid_string_size,
+		  string_format_flags,
 		  &error );
 #else
 	result = libfguid_identifier_copy_to_utf8_string(
 		  guid,
 		  (uint8_t *) guid_string,
 		  guid_string_size,
+		  string_format_flags,
 		  &error );
 #endif
 	if( result == expected_result )
@@ -86,6 +89,17 @@ int fguid_test_identifier_to_string(
 		 "GUID\t: %" PRIs_LIBCSTRING_SYSTEM "\n",
 		 guid_string );
 	}
+	if( result == -1 )
+	{
+		if( expected_result != -1 )
+		{
+			libcerror_error_backtrace_fprint(
+			 error,
+			 stderr );
+		}
+		libcerror_error_free(
+		 &error );
+	}
 	if( result == expected_result )
 	{
 		result = 1;
@@ -105,7 +119,7 @@ int wmain( int argc, wchar_t * const argv[] )
 int main( int argc, char * const argv[] )
 #endif
 {
-        libcstring_system_character_t guid_string[ 37 ];
+        libcstring_system_character_t guid_string[ 48 ];
 
 	uint8_t byte_stream[ 16 ] = { 0xba, 0x8f, 0x0d, 0x45, 0x25, 0xad, 0xd0, 0x11, 0x98, 0xa8, 0x08, 0x00, 0x36, 0x1b, 0x11, 0x03 };
 
@@ -150,6 +164,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     NULL,
 	     37,
+	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
 	     -1 ) != 1 )
 	{
 		fprintf(
@@ -165,6 +180,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     37,
+	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
 	     1 ) != 1 )
 	{
 		fprintf(
@@ -180,6 +196,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     0,
+	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
 	     -1 ) != 1 )
 	{
 		fprintf(
@@ -195,7 +212,40 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     18,
+	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
 	     -1 ) != 1 )
+	{
+		fprintf(
+		 stderr,
+		 "Unable to copy GUID to string.\n" );
+
+		goto on_error;
+	}
+	/* Case 5: string is a buffer, string size is 37
+	 * Expected result: 1
+	 */
+	if( fguid_test_identifier_to_string(
+	     guid,
+	     guid_string,
+	     37,
+	     LIBFGUID_STRING_FORMAT_USE_UPPER_CASE,
+	     1 ) != 1 )
+	{
+		fprintf(
+		 stderr,
+		 "Unable to copy GUID to string.\n" );
+
+		goto on_error;
+	}
+	/* Case 6: string is a buffer, string size is 39
+	 * Expected result: 1
+	 */
+	if( fguid_test_identifier_to_string(
+	     guid,
+	     guid_string,
+	     39,
+	     LIBFGUID_STRING_FORMAT_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES,
+	     1 ) != 1 )
 	{
 		fprintf(
 		 stderr,
