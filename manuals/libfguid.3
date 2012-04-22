@@ -1,9 +1,9 @@
-.Dd April 18, 2012
+.Dd April 22, 2012
 .Dt libfguid 3
 .Os libfguid
 .Sh NAME
 .Nm libfguid.h
-.Nd Library to support the GUID/UUID forma
+.Nd Library to support the GUID/UUID format
 .Sh LIBRARY
 .Lb libfguid
 .Sh SYNOPSIS
@@ -31,7 +31,7 @@ Identifier functions
 .Ft int
 .Fn libfguid_identifier_free "libfguid_identifier_t **identifier, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_identifier_copy_from_byte_stream "libfguid_identifier_t *identifier, const uint8_t *byte_stream, size_t byte_stream_size, uint8_t byte_order, libfguid_error_t **error"
+.Fn libfguid_identifier_copy_from_byte_stream "libfguid_identifier_t *identifier, const uint8_t *byte_stream, size_t byte_stream_size, int byte_order, libfguid_error_t **error"
 .Ft int
 .Fn libfguid_identifier_get_string_size "libfguid_identifier_t *identifier, size_t *string_size, uint32_t string_format_flags, libfguid_error_t **error"
 .Ft int

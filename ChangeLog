@@ -2,6 +2,9 @@ TODO
 * add support for retrieving identifier values
   - add test
 
+20120422
+* changed byte order to int
+
 20120418
 * added format flags
 

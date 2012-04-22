@@ -141,7 +141,7 @@ int libfguid_identifier_copy_from_byte_stream(
      libfguid_identifier_t *identifier,
      const uint8_t *byte_stream,
      size_t byte_stream_size,
-     uint8_t byte_order,
+     int byte_order,
      libcerror_error_t **error )
 {
 	libfguid_internal_identifier_t *internal_identifier = NULL;
