@@ -2,8 +2,8 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfguid],
- [20120507],
- [jbmetz@users.sourceforge.net])
+ [20120523],
+ [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
  [include/libfguid.h.in])

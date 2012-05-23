@@ -158,10 +158,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\libcstring\libcstring_system_string.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\libcstring\libcstring_wide_string.c"
 				>
 			</File>
