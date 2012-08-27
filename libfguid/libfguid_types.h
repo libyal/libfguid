@@ -38,6 +38,7 @@ typedef struct libfguid_identifier {}	libfguid_identifier_t;
 
 #else
 typedef intptr_t libfguid_identifier_t;
+
 #endif
 
 #endif

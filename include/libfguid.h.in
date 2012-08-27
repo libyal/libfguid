@@ -203,7 +203,6 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
      uint32_t *utf32_string,
      size_t utf32_string_size,
      size_t *utf32_string_index,
-     
      libfguid_error_t **error );
 
 #if defined( __cplusplus )
