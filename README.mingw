@@ -1,6 +1,6 @@
 Creating a DLL using MinGW
 
-To compile a libnk2 DLL using MinGW you'll need:
+To compile a libfguid DLL using MinGW you'll need:
 * MinGW
 
 To build a DLL using MinGW use:
@@ -8,7 +8,7 @@ mingw32-configure --prefix=/opt/local/i386-mingw32 --enable-winapi=yes
 mingw32-make
 
 It is recommended that you use WINAPI support but it is possible to compile 
-libnk2 without it (--enable-winapi=no). The default behaviour is that libnk2
+libfguid without it (--enable-winapi=no). The default behaviour is that libfguid
 will try to auto-detect MinGW and enable WINAPI support.
 
 If mingw32-configure and mingw32-make are not available you can build it with:
@@ -31,13 +31,16 @@ CXXFLAGS="$MINGWFLAGS"
 CC=$CC CXX=$CXX AR=$AR OBJDUMP=$OBJDUMP RANLIB=$RANLIB STRIP=$STRIP ./configure --host=i586-mingw32msvc --prefix=/opt/local/i386-mingw32 --enable-winapi=yes
 CC=$CC CXX=$CXX AR=$AR OBJDUMP=$OBJDUMP RANLIB=$RANLIB STRIP=$STRIP CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" make
 
+If you get compiler errors like:
+#error WINAPI file open function for Windows 2000 or earlier NOT implemented yet
+
+That means WINVER is not set or set to a version predating Windows XP (0x0501)
+and you'll have to set WINVER manually like:
+CFLAGS=-DWINVER=0x0501 ./configure --host=i386-mingw32 --enable-winapi=yes
+
 You should end up with the following DLL:
-libnk2-<version>/libnk2/.libs/libnk2-1.dll
+libfguid-<version>/libfguid/.libs/libfguid-1.dll
 
-And the following executables:
-libnk2-<version>/nk2tools/.libs/nk2info.exe
-libnk2-<version>/nk2tools/.libs/nk2export.exe
-
-To install the libnk2 DLL in the MinGW build tree use:
+To install the libfguid DLL in the MinGW build tree use:
 sudo make install
 

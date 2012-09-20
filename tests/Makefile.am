@@ -2,8 +2,7 @@ AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
 	@LIBCSTRING_CPPFLAGS@ \
-	@LIBCERROR_CPPFLAGS@ \
-	@MEMWATCH_CPPFLAGS@
+	@LIBCERROR_CPPFLAGS@
 
 TESTS = \
 	test_identifier_copy_from.sh \
@@ -27,10 +26,9 @@ fguid_test_identifier_copy_from_SOURCES = \
 	fguid_test_identifier_copy_from.c
 
 fguid_test_identifier_copy_from_LDADD = \
-	@LIBCSTRING_LIBADD@ \
-	@LIBCERROR_LIBADD@ \
 	../libfguid/libfguid.la \
-        @MEMWATCH_LIBADD@
+	@LIBCERROR_LIBADD@ \
+	@LIBCSTRING_LIBADD@
 
 fguid_test_identifier_to_string_SOURCES = \
 	fguid_test_libcerror.h \
@@ -39,10 +37,9 @@ fguid_test_identifier_to_string_SOURCES = \
 	fguid_test_identifier_to_string.c
 
 fguid_test_identifier_to_string_LDADD = \
-	@LIBCSTRING_LIBADD@ \
-	@LIBCERROR_LIBADD@ \
 	../libfguid/libfguid.la \
-        @MEMWATCH_LIBADD@
+	@LIBCERROR_LIBADD@ \
+	@LIBCSTRING_LIBADD@
 
 MAINTAINERCLEANFILES = \
 	Makefile.in
