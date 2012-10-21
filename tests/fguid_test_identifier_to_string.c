@@ -164,7 +164,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     NULL,
 	     37,
-	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
+	     LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	     -1 ) != 1 )
 	{
 		fprintf(
@@ -180,7 +180,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     37,
-	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
+	     LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	     1 ) != 1 )
 	{
 		fprintf(
@@ -196,7 +196,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     0,
-	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
+	     LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	     -1 ) != 1 )
 	{
 		fprintf(
@@ -212,7 +212,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     18,
-	     LIBFGUID_STRING_FORMAT_USE_LOWER_CASE,
+	     LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	     -1 ) != 1 )
 	{
 		fprintf(
@@ -228,7 +228,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     37,
-	     LIBFGUID_STRING_FORMAT_USE_UPPER_CASE,
+	     LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
 	     1 ) != 1 )
 	{
 		fprintf(
@@ -244,7 +244,7 @@ int main( int argc, char * const argv[] )
 	     guid,
 	     guid_string,
 	     39,
-	     LIBFGUID_STRING_FORMAT_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES,
+	     LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	     1 ) != 1 )
 	{
 		fprintf(

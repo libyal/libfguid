@@ -3,6 +3,9 @@ TODO
 * add support for retrieving identifier values
   - add test
 
+20121021
+* change for format flag names
+
 20120920
 * updated dependencies
 

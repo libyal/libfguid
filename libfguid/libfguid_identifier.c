@@ -292,9 +292,9 @@ int libfguid_identifier_get_string_size(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & supported_flags ) == 0 )
 	{
@@ -310,7 +310,7 @@ int libfguid_identifier_get_string_size(
 	}
 	*string_size = 37;
 
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		*string_size += 2;
 	}
@@ -418,9 +418,9 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & supported_flags ) == 0 )
 	{
@@ -436,7 +436,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 	}
 	string_size = 37;
 
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		string_size += 2;
 	}
@@ -453,7 +453,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 
 		return( -1 );
 	}
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		utf8_string[ string_index++ ] = (uint8_t) '{';
 	}
@@ -467,7 +467,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
@@ -491,7 +491,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
@@ -515,7 +515,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
@@ -539,7 +539,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
@@ -561,7 +561,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		{
 			utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 		}
@@ -589,7 +589,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 			{
 				utf8_string[ string_index++ ] = (uint8_t) '0' + byte_value;
 			}
-			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 			{
 				utf8_string[ string_index++ ] = (uint8_t) 'A' + byte_value - 10;
 			}
@@ -601,7 +601,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 		}
 		while( byte_shift >= 0 );
 	}
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		utf8_string[ string_index++ ] = (uint8_t) '}';
 	}
@@ -713,9 +713,9 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & supported_flags ) == 0 )
 	{
@@ -731,7 +731,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 	}
 	string_size = 37;
 
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		string_size += 2;
 	}
@@ -748,7 +748,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 
 		return( -1 );
 	}
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		utf16_string[ string_index++ ] = (uint16_t) '{';
 	}
@@ -764,7 +764,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
@@ -788,7 +788,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
@@ -812,7 +812,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
@@ -836,7 +836,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
@@ -858,7 +858,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		{
 			utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 		}
@@ -886,7 +886,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 			{
 				utf16_string[ string_index++ ] = (uint16_t) '0' + byte_value;
 			}
-			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 			{
 				utf16_string[ string_index++ ] = (uint16_t) 'A' + byte_value - 10;
 			}
@@ -898,7 +898,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 		}
 		while( byte_shift >= 0 );
 	}
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		utf16_string[ string_index++ ] = (uint16_t) '}';
 	}
@@ -1010,9 +1010,9 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_UPPER_CASE
-	                | LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES;
+	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & supported_flags ) == 0 )
 	{
@@ -1028,7 +1028,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 	}
 	string_size = 37;
 
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		string_size += 2;
 	}
@@ -1045,7 +1045,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 
 		return( -1 );
 	}
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		utf32_string[ string_index++ ] = (uint32_t) '{';
 	}
@@ -1061,7 +1061,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
@@ -1085,7 +1085,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
@@ -1109,7 +1109,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
@@ -1133,7 +1133,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
@@ -1155,7 +1155,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		{
 			utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 		}
-		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+		else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 		{
 			utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 		}
@@ -1183,7 +1183,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 			{
 				utf32_string[ string_index++ ] = (uint32_t) '0' + byte_value;
 			}
-			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_UPPER_CASE ) != 0 )
+			else if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE ) != 0 )
 			{
 				utf32_string[ string_index++ ] = (uint32_t) 'A' + byte_value - 10;
 			}
@@ -1195,7 +1195,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 		}
 		while( byte_shift >= 0 );
 	}
-	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES ) != 0 )
+	if( ( string_format_flags & LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES ) != 0 )
 	{
 		utf32_string[ string_index++ ] = (uint32_t) '}';
 	}
