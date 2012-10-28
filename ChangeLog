@@ -1,7 +1,13 @@
 TODO
-* add function to parse GUID/UUID from string (for libfvde)
+* tests
+  - string to identifier utf16
+  - string to identifier utf32
+  - identifier to byte stream
 * add support for retrieving identifier values
   - add test
+
+20121028
+* worked on parse GUID/UUID from string function
 
 20121021
 * change for format flag names

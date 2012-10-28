@@ -80,9 +80,34 @@ int libfguid_identifier_copy_from_byte_stream(
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
+int libfguid_identifier_copy_to_byte_stream(
+     libfguid_identifier_t *identifier,
+     uint8_t *byte_stream,
+     size_t byte_stream_size,
+     int byte_order,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
 int libfguid_identifier_get_string_size(
      libfguid_identifier_t *identifier,
      size_t *string_size,
+     uint32_t string_format_flags,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_utf8_string(
+     libfguid_identifier_t *identifier,
+     const uint8_t *utf8_string,
+     size_t utf8_string_length,
+     uint32_t string_format_flags,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_utf8_string_with_index(
+     libfguid_identifier_t *identifier,
+     const uint8_t *utf8_string,
+     size_t utf8_string_length,
+     size_t *utf8_string_index,
      uint32_t string_format_flags,
      libcerror_error_t **error );
 
@@ -104,6 +129,23 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
      libcerror_error_t **error );
 
 LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_utf16_string(
+     libfguid_identifier_t *identifier,
+     const uint16_t *utf16_string,
+     size_t utf16_string_length,
+     uint32_t string_format_flags,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_utf16_string_with_index(
+     libfguid_identifier_t *identifier,
+     const uint16_t *utf16_string,
+     size_t utf16_string_length,
+     size_t *utf16_string_index,
+     uint32_t string_format_flags,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
 int libfguid_identifier_copy_to_utf16_string(
      libfguid_identifier_t *identifier,
      uint16_t *utf16_string,
@@ -117,6 +159,23 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
      uint16_t *utf16_string,
      size_t utf16_string_size,
      size_t *utf16_string_index,
+     uint32_t string_format_flags,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_utf32_string(
+     libfguid_identifier_t *identifier,
+     const uint32_t *utf32_string,
+     size_t utf32_string_length,
+     uint32_t string_format_flags,
+     libcerror_error_t **error );
+
+LIBFGUID_EXTERN \
+int libfguid_identifier_copy_from_utf32_string_with_index(
+     libfguid_identifier_t *identifier,
+     const uint32_t *utf32_string,
+     size_t utf32_string_length,
+     size_t *utf32_string_index,
      uint32_t string_format_flags,
      libcerror_error_t **error );
 
