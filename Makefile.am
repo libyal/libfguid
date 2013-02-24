@@ -9,7 +9,6 @@ SUBDIRS = \
 	po \
 	manuals \
 	tests \
-	borlandc \
 	msvscpp
 
 DPKG_FILES = \

@@ -6,6 +6,11 @@ TODO
 * add support for retrieving identifier values
   - add test
 
+20130224
+* updated dependencies
+* 2013 update
+* removed codegear files
+
 20121028
 * worked on parse GUID/UUID from string function
 

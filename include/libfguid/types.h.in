@@ -1,7 +1,7 @@
 /*
  * Type definitions for libfguid
  *
- * Copyright (c) 2010-2012, Joachim Metz <joachim.metz@gmail.com>
+ * Copyright (c) 2010-2013, Joachim Metz <joachim.metz@gmail.com>
  *
  * Refer to AUTHORS for acknowledgements.
  *
@@ -22,15 +22,17 @@
 #if !defined( _LIBFGUID_TYPES_H )
 #define _LIBFGUID_TYPES_H
 
+#include <libfguid/features.h>
+
 /* Integer type definitions
  */
-#if defined( _MSC_VER ) || ( defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 ) )
+#if ( defined( _MSC_VER ) && ( _MSC_VER < 1600 ) ) || ( defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 ) )
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* The Microsoft Visual Studio C++ compiler or earlier versions of the Borland C++ Builder
+/* Microsoft Visual Studio C++ before Visual Studio 2010 or earlier versions of the Borland C++ Builder
  * do not support the (u)int#_t type definitions but have __int# defintions instead
  */
 #if !defined( HAVE_INT8_T )
@@ -73,44 +75,13 @@ typedef __int64 int64_t;
 typedef unsigned __int64 uint64_t;
 #endif
 
-/* The Microsoft Visual Studio C++ compiler or earlier versions of the Borland C++ Builder
- * do not support the ssize_t type definition
- */
-#if !defined( HAVE_SSIZE_T )
-#define HAVE_SSIZE_T
-
-#if defined( _WIN64 )
-typedef __int64 ssize_t;
-#else
-typedef __int32 ssize_t;
-#endif
-
-#endif /* !defined( HAVE_SSIZE_T ) */
-
-#if defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 )
-
-/* Earlier versions of the Borland C++ Builder do not support the intptr_t type definition
- */
-#if !defined( HAVE_INTPTR_T )
-#define HAVE_INTPTR_T
-
-#if defined( _WIN64 )
-typedef __int64	intptr_t;
-#else
-typedef __int32	intptr_t;
-#endif
-
-#endif /* !defined( HAVE_INTPTR_T ) */
-
-#endif /* defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 ) */
-
 #ifdef __cplusplus
 }
 #endif
 
-#elif defined( __BORLANDC__ )
+#elif defined( _MSC_VER ) || defined( __BORLANDC__ )
 
-/* Later versions of the Borland C/C++ compiler define the types in <stdint.h>
+/* Later versions of Microsoft Visual Studio C++ and Borland C/C++ define the types in <stdint.h>
  */
 #include <stdint.h>
 
@@ -142,6 +113,41 @@ typedef __int32	intptr_t;
 extern "C" {
 #endif
 
+#if defined( _MSC_VER ) || ( defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 ) )
+
+/* Microsoft Visual Studio C++ or earlier versions of the Borland C++ Builder
+ * do not support the ssize_t type definition
+ */
+#if !defined( HAVE_SSIZE_T )
+#define HAVE_SSIZE_T
+
+#if defined( _WIN64 )
+typedef __int64 ssize_t;
+#else
+typedef __int32 ssize_t;
+#endif
+
+#endif /* !defined( HAVE_SSIZE_T ) */
+
+#endif /* defined( _MSC_VER ) || ( defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 ) ) */
+
+#if defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 )
+
+/* Earlier versions of Borland C++ Builder do not support the intptr_t type definition
+ */
+#if !defined( HAVE_INTPTR_T )
+#define HAVE_INTPTR_T
+
+#if defined( _WIN64 )
+typedef __int64	intptr_t;
+#else
+typedef __int32	intptr_t;
+#endif
+
+#endif /* !defined( HAVE_INTPTR_T ) */
+
+#endif /* defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0560 ) */
+
 #if ( !defined( HAVE_SIZE32_T ) && ! @HAVE_SIZE32_T@ ) || HAVE_SIZE32_T == 0
 #define HAVE_SIZE32_T	1
 typedef uint32_t size32_t;
@@ -165,6 +171,32 @@ typedef int64_t ssize64_t;
 #if ( !defined( HAVE_OFF64_T ) && ! @HAVE_OFF64_T@ ) || HAVE_OFF64_T == 0
 #define HAVE_OFF64_T	1
 typedef int64_t off64_t;
+#endif
+
+/* Wide character definition
+ */
+#if defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x0520 )
+#include <string.h>
+
+#elif defined( WINAPI )
+#include <wchar.h>
+
+#elif @HAVE_WCHAR_H@ || defined( HAVE_WCHAR_H )
+
+/* __USE_UNIX98 is required to add swprintf definition
+ */
+#if !defined( __USE_UNIX98 )
+#define __USE_UNIX98
+#define LIBCSTRING_DEFINITION_UNIX98
+#endif
+
+#include <wchar.h>
+
+#if defined( LIBCSTRING_DEFINITION_UNIX98 )
+#undef __USE_UNIX98
+#undef LIBCSTRING_DEFINITION_UNIX98
+#endif
+
 #endif
 
 /* The following type definitions hide internal data structures

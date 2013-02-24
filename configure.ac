@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfguid],
- [20121028],
+ [20130214],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
@@ -36,6 +36,7 @@ AC_PATH_PROG(PKGCONFIG,[pkg-config])
 
 dnl Support of internationalization (i18n)
 AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.18.1])
 
 dnl Check for compiler language support
 AC_C_CONST
@@ -70,10 +71,15 @@ AS_IF(
   [BuildRequires:])
  ])
 
-dnl Set the date for dpkg files
+dnl Set the date for the dpkg files
 AC_SUBST(
- [DATE],
+ [DPKG_DATE],
  [`date -R 2> /dev/null`])
+
+dnl Set the date for the spec file
+AC_SUBST(
+ [SPEC_DATE],
+ [`date +"%a %b %e %Y" 2> /dev/null`])
 
 dnl Have configure make the Makefiles
 AC_CONFIG_FILES([Makefile])
@@ -86,11 +92,11 @@ AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([po/Makevars])
 AC_CONFIG_FILES([manuals/Makefile])
 AC_CONFIG_FILES([tests/Makefile])
-AC_CONFIG_FILES([borlandc/Makefile])
 AC_CONFIG_FILES([msvscpp/Makefile])
 dnl Have configure make the include files
 AC_CONFIG_FILES([include/libfguid.h])
 AC_CONFIG_FILES([include/libfguid/definitions.h])
+AC_CONFIG_FILES([include/libfguid/features.h])
 AC_CONFIG_FILES([include/libfguid/types.h])
 AC_CONFIG_FILES([libfguid/libfguid_definitions.h])
 dnl Have configure make distribution specific files
