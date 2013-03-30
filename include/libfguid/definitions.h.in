@@ -9,12 +9,12 @@
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -50,30 +50,30 @@ enum LIBFGUID_IDENTIFIER_VERSIONS
 
 /* The string format definition flags
  */
-enum LIBFGUID_STRING_FORMAT_FLAGS
+enum LIBFGUID_STRING_FORMAT_FLAG_FLAGS
 {
 	/* Format the using lower case
 	 */
-	LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE		= 0x00000001UL,
+	LIBFGUID_STRING_FORMAT_FLAG_FLAG_USE_LOWER_CASE		= 0x00000001UL,
 
 	/* Format the using upper case
 	 */
-	LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE		= 0x00000002UL,
+	LIBFGUID_STRING_FORMAT_FLAG_FLAG_USE_UPPER_CASE		= 0x00000002UL,
 
 	/* Format the using mixed case
 	 */
-	LIBFGUID_STRING_FORMAT_FLAG_USE_MIXED_CASE		= 0x00000003UL,
+	LIBFGUID_STRING_FORMAT_FLAG_FLAG_USE_MIXED_CASE		= 0x00000003UL,
 
 	/* Format the using surrounding braces { GUID }
 	 */
-	LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES	= 0x00000004UL
+	LIBFGUID_STRING_FORMAT_FLAG_FLAG_USE_SURROUNDING_BRACES	= 0x00000004UL
 };
 
 /* Deprecated will be removed after a while
  */
-#define LIBFGUID_STRING_FORMAT_USE_LOWER_CASE			LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-#define LIBFGUID_STRING_FORMAT_USE_UPPER_CASE			LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
-#define LIBFGUID_STRING_FORMAT_USE_SURROUNDING_BRACES		LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES
+#define LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE			LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+#define LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE			LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+#define LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES		LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES
 
 #endif
 
