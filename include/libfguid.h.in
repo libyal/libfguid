@@ -48,7 +48,7 @@ const char *libfguid_get_version(
  * Error functions
  * ------------------------------------------------------------------------- */
 
-/* Frees the error including elements
+/* Frees an error
  */
 LIBFGUID_EXTERN \
 void libfguid_error_free(
@@ -94,7 +94,8 @@ int libfguid_error_backtrace_sprint(
  * Identifier functions
  * ------------------------------------------------------------------------- */
 
-/* Initialize an identifier
+/* Creates an identifier
+ * Make sure the value identifier is referencing, is set to NULL
  * Returns 1 if successful or -1 on error
  */
 LIBFGUID_EXTERN \

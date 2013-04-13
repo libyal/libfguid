@@ -29,7 +29,8 @@
 #include "libfguid_libcerror.h"
 #include "libfguid_types.h"
 
-/* Initialize an identifier
+/* Creates an identifier
+ * Make sure the value identifier is referencing, is set to NULL
  * Returns 1 if successful or -1 on error
  */
 int libfguid_identifier_initialize(
