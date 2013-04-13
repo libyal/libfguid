@@ -6,6 +6,10 @@ TODO
 * add support for retrieving identifier values
   - add test
 
+20130413
+* definitions fix
+* updated dependencies
+
 20130317
 * added .gitignore
 
