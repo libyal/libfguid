@@ -7,6 +7,6 @@ Name: libfguid
 Description: Library to support the GUID/UUID format
 Version: @VERSION@
 Libs: -L${libdir} -lfguid
-Libs.private: @ax_libcerror_libs_private@ @ax_libcstring_libs_private@
+Libs.private: @ax_libcerror_pc_libs_private@ @ax_libcstring_pc_libs_private@
 Cflags: -I${includedir}
 
