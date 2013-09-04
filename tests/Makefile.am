@@ -10,7 +10,8 @@ TESTS = \
 
 check_SCRIPTS = \
 	test_identifier_copy_from.sh \
-	test_identifier_to_string.sh
+	test_identifier_to_string.sh \
+	test_runner.sh
 
 EXTRA_DIST = \
 	$(check_SCRIPTS)
