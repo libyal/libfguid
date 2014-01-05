@@ -2,7 +2,7 @@
 #
 # GUID/UUID library identifier to string testing script
 #
-# Copyright (c) 2010-2013, Joachim Metz <joachim.metz@gmail.com>
+# Copyright (c) 2010-2014, Joachim Metz <joachim.metz@gmail.com>
 #
 # Refer to AUTHORS for acknowledgements.
 #
