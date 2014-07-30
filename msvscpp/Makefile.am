@@ -1,7 +1,9 @@
 MSVSCPP_FILES = \
+	fguid_test_identifier_copy_from/fguid_test_identifier_copy_from.vcproj \
+	fguid_test_identifier_to_string/fguid_test_identifier_to_string.vcproj \
 	libcerror/libcerror.vcproj \
 	libcstring/libcstring.vcproj \
-	libfguid_dll/libfguid_dll.vcproj \
+	libfguid/libfguid.vcproj \
 	libfguid.sln
 
 SCRIPT_FILES = \
