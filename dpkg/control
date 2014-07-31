@@ -10,8 +10,16 @@ Package: libfguid
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: libfguid-dbg
 Description: Library to support the GUID/UUID format
  libfguid is a library to support the GUID/UUID format.
+
+Package: libfguid-dbg
+Architecture: any
+Section: debug
+Depends: libfguid (= ${Source-Version}), ${misc:Depends}
+Description: Debugging symbols for libfguid
+ Debugging symbols for libfguid.
 
 Package: libfguid-dev
 Section: libdevel
