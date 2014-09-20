@@ -1,4 +1,6 @@
-See:
-* http://code.google.com/p/libfguid/wiki/Building
-* README.macosx
+libfguid is a library for GUID/UUID data types.
+
+For more information see:
+* Project documentation: https://github.com/libyal/libfguid/wiki/Home
+* How to build from source: https://github.com/libyal/libfguid/wiki/Building
 
