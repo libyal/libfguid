@@ -6,6 +6,9 @@ TODO
 * add support for retrieving identifier values
   - add test
 
+20141014
+* updated configure.ac
+
 20141012
 * worked on utility scripts
 
