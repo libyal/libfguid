@@ -1,57 +1,51 @@
 #!/bin/bash
+# Library GUID/UUID identifier copy from testing script
 #
-# GUID/UUID library identifier copy from testing script
-#
-# Copyright (C) 2010-2016, Joachim Metz <joachim.metz@gmail.com>
-#
-# Refer to AUTHORS for acknowledgements.
-#
-# This software is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Lesser General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This software is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU Lesser General Public License
-# along with this software.  If not, see <http://www.gnu.org/licenses/>.
-#
+# Version: 20160217
 
 EXIT_SUCCESS=0;
 EXIT_FAILURE=1;
 EXIT_IGNORE=77;
 
-test_identifier_copy_from()
-{ 
-	rm -rf tmp;
-	mkdir tmp;
+TEST_PREFIX=`pwd`;
+TEST_PREFIX=`dirname ${TEST_PREFIX}`;
+TEST_PREFIX=`basename ${TEST_PREFIX} | sed 's/^lib//'`;
 
-	echo "Testing identifier copy from function";
+test_copy_from()
+{
+	echo "Testing GUID/UUID identifier copy from function";
 
-	${TEST_RUNNER} ./${FGUID_TEST_IDENTIFIER_COPY_FROM};
+	TMPDIR="tmp$$";
+
+	rm -rf ${TMPDIR};
+	mkdir ${TMPDIR};
+
+	${TEST_RUNNER} ${TMPDIR} ${TEST_COPY_FROM};
 
 	RESULT=$?;
 
-	rm -rf tmp;
+	rm -rf ${TMPDIR};
 
 	echo "";
 
 	return ${RESULT};
 }
 
-FGUID_TEST_IDENTIFIER_COPY_FROM="fguid_test_identifier_copy_from";
-
-if ! test -x ${FGUID_TEST_IDENTIFIER_COPY_FROM};
+if ! test -z ${SKIP_LIBRARY_TESTS};
 then
-	FGUID_TEST_IDENTIFIER_COPY_FROM="fguid_test_identifier_copy_from.exe";
+	exit ${EXIT_IGNORE};
 fi
 
-if ! test -x ${FGUID_TEST_IDENTIFIER_COPY_FROM};
+TEST_COPY_FROM="./${TEST_PREFIX}_test_identifier_copy_from";
+
+if ! test -x ${TEST_COPY_FROM};
 then
-	echo "Missing executable: ${FGUID_TEST_IDENTIFIER_COPY_FROM}";
+	TEST_COPY_FROM="${TEST_PREFIX}_test_identifier_copy_from.exe";
+fi
+
+if ! test -x ${TEST_COPY_FROM};
+then
+	echo "Missing executable: ${TEST_COPY_FROM}";
 
 	exit ${EXIT_FAILURE};
 fi
@@ -70,7 +64,7 @@ then
 	exit ${EXIT_FAILURE};
 fi
 
-if ! test_identifier_copy_from;
+if ! test_copy_from;
 then
 	exit ${EXIT_FAILURE};
 fi
