@@ -1,12 +1,12 @@
 include_HEADERS = \
-        libfguid.h
+	libfguid.h
 
 pkginclude_HEADERS = \
-        libfguid/definitions.h \
-        libfguid/error.h \
-        libfguid/extern.h \
-        libfguid/features.h \
-        libfguid/types.h
+	libfguid/definitions.h \
+	libfguid/error.h \
+	libfguid/extern.h \
+	libfguid/features.h \
+	libfguid/types.h
 
 EXTRA_DIST = \
 	libfguid.h.in \
