@@ -6,20 +6,29 @@ AM_CPPFLAGS = \
 	@LIBFGUID_DLL_IMPORT@
 
 TESTS = \
-	test_identifier_copy_from.sh \
-	test_identifier_to_string.sh
+	test_api_functions.sh
 
 check_SCRIPTS = \
-	test_identifier_copy_from.sh \
-	test_identifier_to_string.sh \
+	test_api_functions.sh \
 	test_runner.sh
 
 EXTRA_DIST = \
 	$(check_SCRIPTS)
 
 check_PROGRAMS = \
+	fguid_test_get_version \
 	fguid_test_identifier_copy_from \
 	fguid_test_identifier_to_string
+
+fguid_test_get_version_SOURCES = \
+	fguid_test_get_version.c \
+	fguid_test_libcstring.h \
+	fguid_test_libfguid.h \
+	fguid_test_unused.h
+
+fguid_test_get_version_LDADD = \
+	../libfguid/libfguid.la \
+	@LIBCSTRING_LIBADD@
 
 fguid_test_identifier_copy_from_SOURCES = \
 	fguid_test_libcerror.h \

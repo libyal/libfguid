@@ -1,5 +1,5 @@
 /*
- * The libfguid header wrapper
+ * The internal libfguid header
  *
  * Copyright (C) 2010-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -24,14 +24,14 @@
 
 #include <common.h>
 
-/* If libtool DLL support is enabled set LIBFGUID_DLL_IMPORT
- * before including libfguid.h
+/* If Cygwin libtool DLL support is enabled and do not want to create static
+ * executables set LIBFGUID_DLL_IMPORT before including libfguid.h
  */
-#if defined( _WIN32 ) && defined( DLL_IMPORT )
+#if defined( _WIN32 ) && defined( DLL_EXPORT ) && !defined( HAVE_STATIC_EXECUTABLES )
 #define LIBFGUID_DLL_IMPORT
 #endif
 
 #include <libfguid.h>
 
-#endif
+#endif /* !defined( _FGUID_TEST_LIBFGUID_H ) */
 
