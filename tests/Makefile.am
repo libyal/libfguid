@@ -16,9 +16,20 @@ EXTRA_DIST = \
 	$(check_SCRIPTS)
 
 check_PROGRAMS = \
+	fguid_test_error \
 	fguid_test_get_version \
 	fguid_test_identifier_copy_from \
 	fguid_test_identifier_to_string
+
+fguid_test_error_SOURCES = \
+	fguid_test_error.c \
+	fguid_test_libcstring.h \
+	fguid_test_libfguid.h \
+	fguid_test_unused.h
+
+fguid_test_error_LDADD = \
+	../libfguid/libfguid.la \
+	@LIBCSTRING_LIBADD@
 
 fguid_test_get_version_SOURCES = \
 	fguid_test_get_version.c \
