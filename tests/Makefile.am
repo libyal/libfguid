@@ -25,6 +25,7 @@ fguid_test_error_SOURCES = \
 	fguid_test_error.c \
 	fguid_test_libcstring.h \
 	fguid_test_libfguid.h \
+	fguid_test_macros.h \
 	fguid_test_unused.h
 
 fguid_test_error_LDADD = \
@@ -35,6 +36,7 @@ fguid_test_get_version_SOURCES = \
 	fguid_test_get_version.c \
 	fguid_test_libcstring.h \
 	fguid_test_libfguid.h \
+	fguid_test_macros.h \
 	fguid_test_unused.h
 
 fguid_test_get_version_LDADD = \
