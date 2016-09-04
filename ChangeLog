@@ -1,5 +1,7 @@
 TODO
 * tests
+  - move fguid_test_identifier_copy_from.c and
+  fguid_test_identifier_to_string.c to fguid_test_identifier.c
   - string to identifier utf16
   - string to identifier utf32
   - identifier to byte stream

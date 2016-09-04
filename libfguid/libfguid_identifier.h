@@ -200,5 +200,5 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFGUID_INTERNAL_IDENTIFIER_H ) */
 

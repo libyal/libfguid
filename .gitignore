@@ -121,6 +121,7 @@ stamp-h[1-9]
 /libfguid/libfguid_definitions.h
 /tests/fguid_test_error
 /tests/fguid_test_get_version
+/tests/fguid_test_identifier
 /tests/fguid_test_identifier_copy_from
 /tests/fguid_test_identifier_to_string
 /tests/tmp*
