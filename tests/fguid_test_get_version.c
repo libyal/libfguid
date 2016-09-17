@@ -46,7 +46,7 @@ int fguid_test_get_version(
 	          LIBFGUID_VERSION_STRING,
 	          9 );
 
-	FGUID_TEST_ASSERT_EQUAL(
+	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 0 );
