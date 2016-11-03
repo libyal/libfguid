@@ -20,8 +20,6 @@ EXTRA_DIST = \
 check_PROGRAMS = \
 	fguid_test_error \
 	fguid_test_identifier \
-	fguid_test_identifier_copy_from \
-	fguid_test_identifier_to_string \
 	fguid_test_support
 
 fguid_test_error_SOURCES = \
@@ -44,28 +42,6 @@ fguid_test_identifier_SOURCES = \
 	fguid_test_unused.h
 
 fguid_test_identifier_LDADD = \
-	../libfguid/libfguid.la \
-	@LIBCERROR_LIBADD@ \
-	@LIBCSTRING_LIBADD@
-
-fguid_test_identifier_copy_from_SOURCES = \
-	fguid_test_libcerror.h \
-	fguid_test_libcstring.h \
-	fguid_test_libfguid.h \
-	fguid_test_identifier_copy_from.c
-
-fguid_test_identifier_copy_from_LDADD = \
-	../libfguid/libfguid.la \
-	@LIBCERROR_LIBADD@ \
-	@LIBCSTRING_LIBADD@
-
-fguid_test_identifier_to_string_SOURCES = \
-	fguid_test_libcerror.h \
-	fguid_test_libcstring.h \
-	fguid_test_libfguid.h \
-	fguid_test_identifier_to_string.c
-
-fguid_test_identifier_to_string_LDADD = \
 	../libfguid/libfguid.la \
 	@LIBCERROR_LIBADD@ \
 	@LIBCSTRING_LIBADD@
