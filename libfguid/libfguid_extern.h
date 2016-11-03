@@ -38,10 +38,9 @@
 #include <libfguid/extern.h>
 
 #else
-
 #define LIBFGUID_EXTERN	extern
 
 #endif
 
-#endif
+#endif /* !defined( _LIBFGUID_INTERNAL_EXTERN_H ) */
 

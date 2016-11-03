@@ -123,23 +123,23 @@ int main(
 
 	FGUID_TEST_RUN(
 	 "libfguid_error_free",
-	 fguid_test_error_free() )
+	 fguid_test_error_free );
 
 	FGUID_TEST_RUN(
 	 "libfguid_error_fprint",
-	 fguid_test_error_fprint() )
+	 fguid_test_error_fprint );
 
 	FGUID_TEST_RUN(
 	 "libfguid_error_sprint",
-	 fguid_test_error_sprint() )
+	 fguid_test_error_sprint );
 
 	FGUID_TEST_RUN(
 	 "libfguid_error_backtrace_fprint",
-	 fguid_test_error_backtrace_fprint() )
+	 fguid_test_error_backtrace_fprint );
 
 	FGUID_TEST_RUN(
 	 "libfguid_error_backtrace_sprint",
-	 fguid_test_error_backtrace_sprint() )
+	 fguid_test_error_backtrace_sprint );
 
 	return( EXIT_SUCCESS );
 

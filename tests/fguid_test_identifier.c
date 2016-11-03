@@ -48,7 +48,7 @@ int fguid_test_identifier_initialize(
 	          &identifier,
 	          &error );
 
-	FGUID_TEST_ASSERT_EQUAL(
+	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 1 );
@@ -65,7 +65,7 @@ int fguid_test_identifier_initialize(
 	          &identifier,
 	          &error );
 
-	FGUID_TEST_ASSERT_EQUAL(
+	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 1 );
@@ -84,7 +84,7 @@ int fguid_test_identifier_initialize(
 	          NULL,
 	          &error );
 
-	FGUID_TEST_ASSERT_EQUAL(
+	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 -1 );
@@ -102,7 +102,7 @@ int fguid_test_identifier_initialize(
 	          &identifier,
 	          &error );
 
-	FGUID_TEST_ASSERT_EQUAL(
+	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 -1 );
@@ -132,7 +132,7 @@ int fguid_test_identifier_initialize(
 	}
 	else
 	{
-		FGUID_TEST_ASSERT_EQUAL(
+		FGUID_TEST_ASSERT_EQUAL_INT(
 		 "result",
 		 result,
 		 -1 );
@@ -162,7 +162,7 @@ int fguid_test_identifier_initialize(
 	}
 	else
 	{
-		FGUID_TEST_ASSERT_EQUAL(
+		FGUID_TEST_ASSERT_EQUAL_INT(
 		 "result",
 		 result,
 		 -1 );
@@ -212,7 +212,7 @@ int fguid_test_identifier_free(
 	          NULL,
 	          &error );
 
-	FGUID_TEST_ASSERT_EQUAL(
+	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 -1 );
@@ -252,11 +252,11 @@ int main(
 
 	FGUID_TEST_RUN(
 	 "libfguid_identifier_initialize",
-	 fguid_test_identifier_initialize() )
+	 fguid_test_identifier_initialize );
 
 	FGUID_TEST_RUN(
 	 "libfguid_identifier_free",
-	 fguid_test_identifier_free() )
+	 fguid_test_identifier_free );
 
 	/* TODO: add test for libfguid_identifier_copy_from_byte_stream */
 	/* TODO: add test for libfguid_identifier_copy_to_byte_stream */
