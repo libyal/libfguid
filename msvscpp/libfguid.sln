@@ -3,35 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfguid", "libfguid\libfguid.vcproj", "{D183C7CA-EEAB-4669-9BBE-8289FA08A754}"
 	ProjectSection(ProjectDependencies) = postProject
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F} = {20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}
 		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C} = {BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fguid_test_error", "fguid_test_error\fguid_test_error.vcproj", "{63F28105-9EE1-4034-BC0A-9DF068B84714}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D183C7CA-EEAB-4669-9BBE-8289FA08A754} = {D183C7CA-EEAB-4669-9BBE-8289FA08A754}
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F} = {20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fguid_test_identifier", "fguid_test_identifier\fguid_test_identifier.vcproj", "{0EE47838-F45C-41D4-BE90-AD66D95DD129}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D183C7CA-EEAB-4669-9BBE-8289FA08A754} = {D183C7CA-EEAB-4669-9BBE-8289FA08A754}
 		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C} = {BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F} = {20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fguid_test_support", "fguid_test_support\fguid_test_support.vcproj", "{DF29A4B9-7303-4E47-9BF0-0977054303F1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D183C7CA-EEAB-4669-9BBE-8289FA08A754} = {D183C7CA-EEAB-4669-9BBE-8289FA08A754}
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F} = {20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}
 	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcstring", "libcstring\libcstring.vcproj", "{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcerror", "libcerror\libcerror.vcproj", "{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F} = {20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +46,6 @@ Global
 		{DF29A4B9-7303-4E47-9BF0-0977054303F1}.Release|Win32.Build.0 = Release|Win32
 		{DF29A4B9-7303-4E47-9BF0-0977054303F1}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
 		{DF29A4B9-7303-4E47-9BF0-0977054303F1}.VSDebug|Win32.Build.0 = VSDebug|Win32
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}.Release|Win32.ActiveCfg = Release|Win32
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}.Release|Win32.Build.0 = Release|Win32
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
-		{20FFC4C9-F44C-45F6-A827-4819B4DF3C9F}.VSDebug|Win32.Build.0 = VSDebug|Win32
 		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}.Release|Win32.ActiveCfg = Release|Win32
 		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}.Release|Win32.Build.0 = Release|Win32
 		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}.VSDebug|Win32.ActiveCfg = VSDebug|Win32

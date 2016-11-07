@@ -3,7 +3,6 @@ MSVSCPP_FILES = \
 	fguid_test_identifier/fguid_test_identifier.vcproj \
 	fguid_test_support/fguid_test_support.vcproj \
 	libcerror/libcerror.vcproj \
-	libcstring/libcstring.vcproj \
 	libfguid/libfguid.vcproj \
 	libfguid.sln
 
