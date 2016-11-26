@@ -32,6 +32,7 @@ fguid_test_error_LDADD = \
 
 fguid_test_identifier_SOURCES = \
 	fguid_test_identifier.c \
+	fguid_test_libcerror.h \
 	fguid_test_libfguid.h \
 	fguid_test_macros.h \
 	fguid_test_memory.c fguid_test_memory.h \
