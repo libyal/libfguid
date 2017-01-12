@@ -1,7 +1,7 @@
 /*
- * Library identifier type testing program
+ * Library identifier type test program
  *
- * Copyright (C) 2010-2016, Joachim Metz <joachim.metz@gmail.com>
+ * Copyright (C) 2010-2017, Joachim Metz <joachim.metz@gmail.com>
  *
  * Refer to AUTHORS for acknowledgements.
  *
@@ -58,7 +58,13 @@ int fguid_test_identifier_initialize(
 	libfguid_identifier_t *identifier = NULL;
 	int result                        = 0;
 
-	/* Test libfguid_identifier_initialize without entries
+#if defined( HAVE_FGUID_TEST_MEMORY )
+	int number_of_malloc_fail_tests   = 1;
+	int number_of_memset_fail_tests   = 1;
+	int test_number                   = 0;
+#endif
+
+	/* Test regular cases
 	 */
 	result = libfguid_identifier_initialize(
 	          &identifier,
@@ -134,65 +140,89 @@ int fguid_test_identifier_initialize(
 
 #if defined( HAVE_FGUID_TEST_MEMORY )
 
-	/* Test libfguid_identifier_initialize with malloc failing
-	 */
-	fguid_test_malloc_attempts_before_fail = 0;
-
-	result = libfguid_identifier_initialize(
-	          &identifier,
-	          &error );
-
-	if( fguid_test_malloc_attempts_before_fail != -1 )
+	for( test_number = 0;
+	     test_number < number_of_malloc_fail_tests;
+	     test_number++ )
 	{
-		fguid_test_malloc_attempts_before_fail = -1;
+		/* Test libfguid_identifier_initialize with malloc failing
+		 */
+		fguid_test_malloc_attempts_before_fail = test_number;
+
+		result = libfguid_identifier_initialize(
+		          &identifier,
+		          &error );
+
+		if( fguid_test_malloc_attempts_before_fail != -1 )
+		{
+			fguid_test_malloc_attempts_before_fail = -1;
+
+			if( identifier != NULL )
+			{
+				libfguid_identifier_free(
+				 &identifier,
+				 NULL );
+			}
+		}
+		else
+		{
+			FGUID_TEST_ASSERT_EQUAL_INT(
+			 "result",
+			 result,
+			 -1 );
+
+			FGUID_TEST_ASSERT_IS_NULL(
+			 "identifier",
+			 identifier );
+
+			FGUID_TEST_ASSERT_IS_NOT_NULL(
+			 "error",
+			 error );
+
+			libcerror_error_free(
+			 &error );
+		}
 	}
-	else
+	for( test_number = 0;
+	     test_number < number_of_memset_fail_tests;
+	     test_number++ )
 	{
-		FGUID_TEST_ASSERT_EQUAL_INT(
-		 "result",
-		 result,
-		 -1 );
+		/* Test libfguid_identifier_initialize with memset failing
+		 */
+		fguid_test_memset_attempts_before_fail = test_number;
 
-		FGUID_TEST_ASSERT_IS_NULL(
-		 "identifier",
-		 identifier );
+		result = libfguid_identifier_initialize(
+		          &identifier,
+		          &error );
 
-		FGUID_TEST_ASSERT_IS_NOT_NULL(
-		 "error",
-		 error );
+		if( fguid_test_memset_attempts_before_fail != -1 )
+		{
+			fguid_test_memset_attempts_before_fail = -1;
 
-		libcerror_error_free(
-		 &error );
-	}
-	/* Test libfguid_identifier_initialize with memset failing
-	 */
-	fguid_test_memset_attempts_before_fail = 0;
+			if( identifier != NULL )
+			{
+				libfguid_identifier_free(
+				 &identifier,
+				 NULL );
+			}
+		}
+		else
+		{
+			FGUID_TEST_ASSERT_EQUAL_INT(
+			 "result",
+			 result,
+			 -1 );
 
-	result = libfguid_identifier_initialize(
-	          &identifier,
-	          &error );
+			FGUID_TEST_ASSERT_IS_NULL(
+			 "identifier",
+			 identifier );
 
-	if( fguid_test_memset_attempts_before_fail != -1 )
-	{
-		fguid_test_memset_attempts_before_fail = -1;
-	}
-	else
-	{
-		FGUID_TEST_ASSERT_EQUAL_INT(
-		 "result",
-		 result,
-		 -1 );
+			FGUID_TEST_ASSERT_IS_NOT_NULL(
+			 "error",
+			 error );
 
-		FGUID_TEST_ASSERT_IS_NULL(
-		 "identifier",
-		 identifier );
-
-		FGUID_TEST_ASSERT_IS_NOT_NULL(
-		 "error",
-		 error );
-
-		libcerror_error_free(
-		 &error );
+			libcerror_error_free(
+			 &error );
+		}
 	}
 #endif /* defined( HAVE_FGUID_TEST_MEMORY ) */
 
