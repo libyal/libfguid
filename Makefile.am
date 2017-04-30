@@ -16,10 +16,9 @@ DPKG_FILES = \
 	dpkg/compat \
 	dpkg/control \
 	dpkg/copyright \
-	dpkg/copyright.in \
 	dpkg/rules \
-	dpkg/libfguid-dev.docs \
-	dpkg/libfguid.docs \
+	dpkg/libfguid-dev.install \
+	dpkg/libfguid.install \
 	dpkg/source/format
 
 GETTEXT_FILES = \
