@@ -75,13 +75,13 @@ int fguid_test_identifier_initialize(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_free(
 	          &identifier,
@@ -92,13 +92,13 @@ int fguid_test_identifier_initialize(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test error cases
 	 */
@@ -111,9 +111,9 @@ int fguid_test_identifier_initialize(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -129,9 +129,9 @@ int fguid_test_identifier_initialize(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -263,9 +263,9 @@ int fguid_test_identifier_free(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -302,13 +302,13 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test copy from byte stream
 	 */
@@ -324,9 +324,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_byte_stream(
 	          identifier,
@@ -340,9 +340,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test error cases
 	 */
@@ -358,9 +358,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -377,9 +377,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -396,9 +396,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -415,9 +415,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -436,9 +436,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -457,9 +457,9 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -475,13 +475,13 @@ int fguid_test_identifier_copy_from_byte_stream(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	return( 1 );
 
@@ -521,13 +521,13 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test copy from UTF-8 string
 	 */
@@ -543,9 +543,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_utf8_string(
 	          identifier,
@@ -559,9 +559,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_utf8_string(
 	          identifier,
@@ -575,9 +575,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_utf8_string(
 	          identifier,
@@ -591,9 +591,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test error cases
 	 */
@@ -609,9 +609,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -628,9 +628,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -647,9 +647,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -666,9 +666,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -687,9 +687,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -708,9 +708,9 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -726,13 +726,13 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	return( 1 );
 
@@ -757,7 +757,7 @@ on_error:
 int fguid_test_identifier_copy_to_utf8_string(
      void )
 {
-        uint8_t utft8_string[ 48 ];
+	uint8_t utft8_string[ 48 ];
 
 	libcerror_error_t *error          = NULL;
 	libfguid_identifier_t *identifier = NULL;
@@ -774,13 +774,13 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_byte_stream(
 	          identifier,
@@ -794,9 +794,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test copy to UTF-8 string
 	 */
@@ -812,9 +812,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -830,9 +830,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -848,9 +848,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -868,9 +868,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -887,9 +887,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -906,9 +906,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -925,9 +925,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -946,9 +946,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -967,9 +967,9 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -985,13 +985,13 @@ int fguid_test_identifier_copy_to_utf8_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	return( 1 );
 
@@ -1016,7 +1016,7 @@ on_error:
 int fguid_test_identifier_copy_to_utf16_string(
      void )
 {
-        uint16_t utft16_string[ 48 ];
+	uint16_t utft16_string[ 48 ];
 
 	libcerror_error_t *error          = NULL;
 	libfguid_identifier_t *identifier = NULL;
@@ -1033,13 +1033,13 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_byte_stream(
 	          identifier,
@@ -1053,9 +1053,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test copy to UTF-16 string
 	 */
@@ -1071,9 +1071,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -1089,9 +1089,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -1107,9 +1107,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -1127,9 +1127,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1146,9 +1146,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1165,9 +1165,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1184,9 +1184,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1205,9 +1205,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1226,9 +1226,9 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1244,13 +1244,13 @@ int fguid_test_identifier_copy_to_utf16_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	return( 1 );
 
@@ -1275,7 +1275,7 @@ on_error:
 int fguid_test_identifier_copy_to_utf32_string(
      void )
 {
-        uint32_t utft32_string[ 48 ];
+	uint32_t utft32_string[ 48 ];
 
 	libcerror_error_t *error          = NULL;
 	libfguid_identifier_t *identifier = NULL;
@@ -1292,13 +1292,13 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	result = libfguid_identifier_copy_from_byte_stream(
 	          identifier,
@@ -1312,9 +1312,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test copy to UTF-32 string
 	 */
@@ -1330,9 +1330,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -1348,9 +1348,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -1366,9 +1366,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 /* TODO compare string */
 
@@ -1386,9 +1386,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1405,9 +1405,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1424,9 +1424,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1443,9 +1443,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1464,9 +1464,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1485,9 +1485,9 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 -1 );
 
-        FGUID_TEST_ASSERT_IS_NOT_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
 
 	libcerror_error_free(
 	 &error );
@@ -1503,13 +1503,13 @@ int fguid_test_identifier_copy_to_utf32_string(
 	 result,
 	 1 );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "identifier",
-         identifier );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
 
-        FGUID_TEST_ASSERT_IS_NULL(
-         "error",
-         error );
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	return( 1 );
 
