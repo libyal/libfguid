@@ -500,6 +500,368 @@ on_error:
 	return( 0 );
 }
 
+/* Tests the libfguid_identifier_copy_to_byte_stream function
+ * Returns 1 if successful or 0 if not
+ */
+int fguid_test_identifier_copy_to_byte_stream(
+     void )
+{
+	uint8_t guid_data[ 16 ];
+
+	libcerror_error_t *error          = NULL;
+	libfguid_identifier_t *identifier = NULL;
+	int result                        = 0;
+
+	/* Initialize test
+	 */
+	result = libfguid_identifier_initialize(
+	          &identifier,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test copy to byte stream
+	 */
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          guid_data,
+	          16,
+	          LIBFGUID_ENDIAN_BIG,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          guid_data,
+	          16,
+	          LIBFGUID_ENDIAN_LITTLE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test error cases
+	 */
+	result = libfguid_identifier_copy_to_byte_stream(
+	          NULL,
+	          guid_data,
+	          16,
+	          LIBFGUID_ENDIAN_LITTLE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          NULL,
+	          16,
+	          LIBFGUID_ENDIAN_LITTLE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          guid_data,
+	          (size_t) SSIZE_MAX + 1,
+	          LIBFGUID_ENDIAN_LITTLE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          guid_data,
+	          16,
+	          (uint8_t) 'X',
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Byte stream too small
+	 */
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          guid_data,
+	          0,
+	          LIBFGUID_ENDIAN_LITTLE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Byte stream too small
+	 */
+	result = libfguid_identifier_copy_to_byte_stream(
+	          identifier,
+	          guid_data,
+	          8,
+	          LIBFGUID_ENDIAN_LITTLE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Clean up
+	 */
+	result = libfguid_identifier_free(
+	          &identifier,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( identifier != NULL )
+	{
+		libfguid_identifier_free(
+		 &identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfguid_identifier_get_string_size function
+ * Returns 1 if successful or 0 if not
+ */
+int fguid_test_identifier_get_string_size(
+     void )
+{
+	libcerror_error_t *error          = NULL;
+	libfguid_identifier_t *identifier = NULL;
+	size_t string_size                = 0;
+	int result                        = 0;
+
+	/* Initialize test
+	 */
+	result = libfguid_identifier_initialize(
+	          &identifier,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test get string size
+	 */
+	result = libfguid_identifier_get_string_size(
+	          identifier,
+	          &string_size,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* TODO assert string size */
+
+	/* Test error cases
+	 */
+	result = libfguid_identifier_get_string_size(
+	          NULL,
+	          &string_size,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_get_string_size(
+	          identifier,
+	          NULL,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_get_string_size(
+	          identifier,
+	          &string_size,
+	          0xff,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Clean up
+	 */
+	result = libfguid_identifier_free(
+	          &identifier,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( identifier != NULL )
+	{
+		libfguid_identifier_free(
+		 &identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
 /* Tests the libfguid_identifier_copy_from_utf8_string function
  * Returns 1 if successful or 0 if not
  */
@@ -547,54 +909,6 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 "error",
 	 error );
 
-	result = libfguid_identifier_copy_from_utf8_string(
-	          identifier,
-	          fguid_test_identifier_utf8_string_upper,
-	          36,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
-	          &error );
-
-	FGUID_TEST_ASSERT_EQUAL_INT(
-	 "result",
-	 result,
-	 1 );
-
-	FGUID_TEST_ASSERT_IS_NULL(
-	 "error",
-	 error );
-
-	result = libfguid_identifier_copy_from_utf8_string(
-	          identifier,
-	          fguid_test_identifier_utf8_string_mixed,
-	          36,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_MIXED_CASE,
-	          &error );
-
-	FGUID_TEST_ASSERT_EQUAL_INT(
-	 "result",
-	 result,
-	 1 );
-
-	FGUID_TEST_ASSERT_IS_NULL(
-	 "error",
-	 error );
-
-	result = libfguid_identifier_copy_from_utf8_string(
-	          identifier,
-	          fguid_test_identifier_utf8_string_lower_with_braces,
-	          38,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
-	          &error );
-
-	FGUID_TEST_ASSERT_EQUAL_INT(
-	 "result",
-	 result,
-	 1 );
-
-	FGUID_TEST_ASSERT_IS_NULL(
-	 "error",
-	 error );
-
 	/* Test error cases
 	 */
 	result = libfguid_identifier_copy_from_utf8_string(
@@ -616,10 +930,204 @@ int fguid_test_identifier_copy_from_utf8_string(
 	libcerror_error_free(
 	 &error );
 
-	result = libfguid_identifier_copy_from_utf8_string(
+	/* Clean up
+	 */
+	result = libfguid_identifier_free(
+	          &identifier,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "identifier",
+	 identifier );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	return( 1 );
+
+on_error:
+	if( error != NULL )
+	{
+		libcerror_error_free(
+		 &error );
+	}
+	if( identifier != NULL )
+	{
+		libfguid_identifier_free(
+		 &identifier,
+		 NULL );
+	}
+	return( 0 );
+}
+
+/* Tests the libfguid_identifier_copy_from_utf8_string_with_index function
+ * Returns 1 if successful or 0 if not
+ */
+int fguid_test_identifier_copy_from_utf8_string_with_index(
+     void )
+{
+	libcerror_error_t *error          = NULL;
+	libfguid_identifier_t *identifier = NULL;
+	size_t utf8_string_index          = 0;
+	int result                        = 0;
+
+	/* Initialize test
+	 */
+	result = libfguid_identifier_initialize(
+	          &identifier,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "identifier",
+	 identifier );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test copy from UTF-8 string
+	 */
+	utf8_string_index = 0;
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 36 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_string_index = 0;
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_upper,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 36 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_string_index = 0;
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_mixed,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_MIXED_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 36 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	utf8_string_index = 0;
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_braces,
+	          38,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 38 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
+
+	/* Test error cases
+	 */
+	utf8_string_index = 0;
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          NULL,
+	          fguid_test_identifier_utf8_string_lower,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          NULL,
 	          36,
+	          &utf8_string_index,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
@@ -628,6 +1136,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
 	FGUID_TEST_ASSERT_IS_NOT_NULL(
 	 "error",
 	 error );
@@ -635,10 +1148,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	libcerror_error_free(
 	 &error );
 
-	result = libfguid_identifier_copy_from_utf8_string(
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf8_string_lower,
 	          (size_t) SSIZE_MAX + 1,
+	          &utf8_string_index,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
@@ -647,6 +1161,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 result,
 	 -1 );
 
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
 	FGUID_TEST_ASSERT_IS_NOT_NULL(
 	 "error",
 	 error );
@@ -654,10 +1173,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	libcerror_error_free(
 	 &error );
 
-	result = libfguid_identifier_copy_from_utf8_string(
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf8_string_lower,
 	          36,
+	          &utf8_string_index,
 	          0xffffffffUL,
 	          &error );
 
@@ -665,6 +1185,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 "result",
 	 result,
 	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
 
 	FGUID_TEST_ASSERT_IS_NOT_NULL(
 	 "error",
@@ -675,10 +1200,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 
 	/* UTF-8 string too small
 	 */
-	result = libfguid_identifier_copy_from_utf8_string(
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf8_string_lower,
 	          12,
+	          &utf8_string_index,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
@@ -686,6 +1212,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 "result",
 	 result,
 	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
 
 	FGUID_TEST_ASSERT_IS_NOT_NULL(
 	 "error",
@@ -696,10 +1227,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 
 	/* Incorrect case
 	 */
-	result = libfguid_identifier_copy_from_utf8_string(
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf8_string_mixed,
 	          36,
+	          &utf8_string_index,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
 	          &error );
 
@@ -707,6 +1239,11 @@ int fguid_test_identifier_copy_from_utf8_string(
 	 "result",
 	 result,
 	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
 
 	FGUID_TEST_ASSERT_IS_NOT_NULL(
 	 "error",
@@ -1555,14 +2092,21 @@ int main(
 	 "libfguid_identifier_copy_from_byte_stream",
 	 fguid_test_identifier_copy_from_byte_stream );
 
-	/* TODO: add test for libfguid_identifier_copy_to_byte_stream */
-	/* TODO: add test for libfguid_identifier_get_string_size */
+	FGUID_TEST_RUN(
+	 "libfguid_identifier_copy_to_byte_stream",
+	 fguid_test_identifier_copy_to_byte_stream );
+
+	FGUID_TEST_RUN(
+	 "libfguid_identifier_get_string_size",
+	 fguid_test_identifier_get_string_size );
 
 	FGUID_TEST_RUN(
 	 "libfguid_identifier_copy_from_utf8_string",
 	 fguid_test_identifier_copy_from_utf8_string );
 
-	/* TODO: add test for libfguid_identifier_copy_from_utf8_string_with_index */
+	FGUID_TEST_RUN(
+	 "libfguid_identifier_copy_from_utf8_string_with_index",
+	 fguid_test_identifier_copy_from_utf8_string_with_index );
 
 	FGUID_TEST_RUN(
 	 "libfguid_identifier_copy_to_utf8_string",

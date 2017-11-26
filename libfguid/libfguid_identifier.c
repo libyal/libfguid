@@ -420,7 +420,7 @@ int libfguid_identifier_get_string_size(
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
-	if( ( string_format_flags & supported_flags ) == 0 )
+	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
 	{
 		libcerror_error_set(
 		 error,
