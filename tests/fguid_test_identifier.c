@@ -48,6 +48,24 @@ uint8_t *fguid_test_identifier_utf8_string_mixed = \
 uint8_t *fguid_test_identifier_utf8_string_upper = \
 	(uint8_t *) "450D8FBA-AD25-11D0-98A8-0800361B1103";
 
+uint8_t *fguid_test_identifier_utf8_string_lower_with_invalid_first_brace = \
+	(uint8_t *) "[450d8fba-ad25-11d0-98a8-0800361b1103}";
+
+uint8_t *fguid_test_identifier_utf8_string_lower_with_invalid_last_brace = \
+	(uint8_t *) "{450d8fba-ad25-11d0-98a8-0800361b1103]";
+
+uint8_t *fguid_test_identifier_utf8_string_lower_with_invalid_first_separator = \
+	(uint8_t *) "450d8fba_ad25-11d0-98a8-0800361b1103";
+
+uint8_t *fguid_test_identifier_utf8_string_lower_with_invalid_second_separator = \
+	(uint8_t *) "450d8fba-ad25_11d0-98a8-0800361b1103";
+
+uint8_t *fguid_test_identifier_utf8_string_lower_with_invalid_third_separator = \
+	(uint8_t *) "450d8fba-ad25-11d0_98a8-0800361b1103";
+
+uint8_t *fguid_test_identifier_utf8_string_lower_with_invalid_fourth_separator = \
+	(uint8_t *) "450d8fba-ad25-11d0-98a8_0800361b1103";
+
 uint16_t fguid_test_identifier_utf16_string_lower[ 36 ] = {
 	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
 	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
@@ -68,6 +86,36 @@ uint16_t fguid_test_identifier_utf16_string_upper[ 36 ] = {
 	0x44, 0x30, 0x2d, 0x39, 0x38, 0x41, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x42,
 	0x31, 0x31, 0x30, 0x33 };
 
+uint16_t fguid_test_identifier_utf16_string_lower_with_invalid_first_brace[ 38 ] = {
+	0x5b, 0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 
+	0x31, 0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 
+	0x62, 0x31, 0x31, 0x30, 0x33, 0x7d };
+
+uint16_t fguid_test_identifier_utf16_string_lower_with_invalid_last_brace[ 38 ] = {
+	0x7b, 0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 
+	0x31, 0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 
+	0x62, 0x31, 0x31, 0x30, 0x33, 0x5d };
+
+uint16_t fguid_test_identifier_utf16_string_lower_with_invalid_first_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x5f, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
+	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
+uint16_t fguid_test_identifier_utf16_string_lower_with_invalid_second_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x5f, 0x31, 0x31, 
+	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
+uint16_t fguid_test_identifier_utf16_string_lower_with_invalid_third_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
+	0x64, 0x30, 0x5f, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
+uint16_t fguid_test_identifier_utf16_string_lower_with_invalid_fourth_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
+	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x5f, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
 uint32_t fguid_test_identifier_utf32_string_lower[ 36 ] = {
 	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
 	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
@@ -86,6 +134,36 @@ uint32_t fguid_test_identifier_utf32_string_mixed[ 36 ] = {
 uint32_t fguid_test_identifier_utf32_string_upper[ 36 ] = {
 	0x34, 0x35, 0x30, 0x44, 0x38, 0x46, 0x42, 0x41, 0x2d, 0x41, 0x44, 0x32, 0x35, 0x2d, 0x31, 0x31,
 	0x44, 0x30, 0x2d, 0x39, 0x38, 0x41, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x42,
+	0x31, 0x31, 0x30, 0x33 };
+
+uint32_t fguid_test_identifier_utf32_string_lower_with_invalid_first_brace[ 38 ] = {
+	0x5b, 0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 
+	0x31, 0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 
+	0x62, 0x31, 0x31, 0x30, 0x33, 0x7d };
+
+uint32_t fguid_test_identifier_utf32_string_lower_with_invalid_last_brace[ 38 ] = {
+	0x7b, 0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 
+	0x31, 0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 
+	0x62, 0x31, 0x31, 0x30, 0x33, 0x5d };
+
+uint32_t fguid_test_identifier_utf32_string_lower_with_invalid_first_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x5f, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
+	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
+uint32_t fguid_test_identifier_utf32_string_lower_with_invalid_second_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x5f, 0x31, 0x31, 
+	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
+uint32_t fguid_test_identifier_utf32_string_lower_with_invalid_third_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
+	0x64, 0x30, 0x5f, 0x39, 0x38, 0x61, 0x38, 0x2d, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
+	0x31, 0x31, 0x30, 0x33 };
+
+uint32_t fguid_test_identifier_utf32_string_lower_with_invalid_fourth_separator[ 36 ] = {
+	0x34, 0x35, 0x30, 0x64, 0x38, 0x66, 0x62, 0x61, 0x2d, 0x61, 0x64, 0x32, 0x35, 0x2d, 0x31, 0x31, 
+	0x64, 0x30, 0x2d, 0x39, 0x38, 0x61, 0x38, 0x5f, 0x30, 0x38, 0x30, 0x30, 0x33, 0x36, 0x31, 0x62, 
 	0x31, 0x31, 0x30, 0x33 };
 
 /* Tests the libfguid_identifier_initialize function
@@ -804,11 +882,34 @@ int fguid_test_identifier_get_string_size(
 	 result,
 	 1 );
 
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "string_size",
+	 string_size,
+	 (size_t) 37 );
+
 	FGUID_TEST_ASSERT_IS_NULL(
 	 "error",
 	 error );
 
-	/* TODO assert string size */
+	result = libfguid_identifier_get_string_size(
+	          identifier,
+	          &string_size,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "string_size",
+	 string_size,
+	 (size_t) 39 );
+
+	FGUID_TEST_ASSERT_IS_NULL(
+	 "error",
+	 error );
 
 	/* Test error cases
 	 */
@@ -1217,6 +1318,31 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf8_string_lower,
 	          36,
+	          NULL,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower,
+	          36,
 	          &utf8_string_index,
 	          0xffffffffUL,
 	          &error );
@@ -1270,6 +1396,168 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	result = libfguid_identifier_copy_from_utf8_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf8_string_mixed,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect first surrounding brace
+	 */
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_invalid_first_brace,
+	          38,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect last surrounding brace
+	 */
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_invalid_last_brace,
+	          38,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect first separator
+	 */
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_invalid_first_separator,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect second separator
+	 */
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_invalid_second_separator,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect third separator
+	 */
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_invalid_third_separator,
+	          36,
+	          &utf8_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf8_string_index",
+	 utf8_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect fourth separator
+	 */
+	result = libfguid_identifier_copy_from_utf8_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf8_string_lower_with_invalid_fourth_separator,
 	          36,
 	          &utf8_string_index,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
@@ -1977,6 +2265,168 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	libcerror_error_free(
 	 &error );
 
+	/* Incorrect first surrounding brace
+	 */
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower_with_invalid_first_brace,
+	          38,
+	          &utf16_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect last surrounding brace
+	 */
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower_with_invalid_last_brace,
+	          38,
+	          &utf16_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect first separator
+	 */
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower_with_invalid_first_separator,
+	          36,
+	          &utf16_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect second separator
+	 */
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower_with_invalid_second_separator,
+	          36,
+	          &utf16_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect third separator
+	 */
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower_with_invalid_third_separator,
+	          36,
+	          &utf16_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect fourth separator
+	 */
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower_with_invalid_fourth_separator,
+	          36,
+	          &utf16_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
 	/* Clean up
 	 */
 	result = libfguid_identifier_free(
@@ -2640,6 +3090,168 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	result = libfguid_identifier_copy_from_utf32_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf32_string_mixed,
+	          36,
+	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect first surrounding brace
+	 */
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower_with_invalid_first_brace,
+	          38,
+	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect last surrounding brace
+	 */
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower_with_invalid_last_brace,
+	          38,
+	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect first separator
+	 */
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower_with_invalid_first_separator,
+	          36,
+	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect second separator
+	 */
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower_with_invalid_second_separator,
+	          36,
+	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect third separator
+	 */
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower_with_invalid_third_separator,
+	          36,
+	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	/* Incorrect fourth separator
+	 */
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower_with_invalid_fourth_separator,
 	          36,
 	          &utf32_string_index,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
