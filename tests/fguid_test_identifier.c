@@ -1425,7 +1425,7 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          fguid_test_identifier_utf8_string_lower_with_invalid_first_brace,
 	          38,
 	          &utf8_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -1452,7 +1452,7 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          fguid_test_identifier_utf8_string_lower_with_invalid_last_brace,
 	          38,
 	          &utf8_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -1479,7 +1479,7 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          fguid_test_identifier_utf8_string_lower_with_invalid_first_separator,
 	          36,
 	          &utf8_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -1506,7 +1506,7 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          fguid_test_identifier_utf8_string_lower_with_invalid_second_separator,
 	          36,
 	          &utf8_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -1533,7 +1533,7 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          fguid_test_identifier_utf8_string_lower_with_invalid_third_separator,
 	          36,
 	          &utf8_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -1560,7 +1560,7 @@ int fguid_test_identifier_copy_from_utf8_string_with_index(
 	          fguid_test_identifier_utf8_string_lower_with_invalid_fourth_separator,
 	          36,
 	          &utf8_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2272,7 +2272,7 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          fguid_test_identifier_utf16_string_lower_with_invalid_first_brace,
 	          38,
 	          &utf16_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2299,7 +2299,7 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          fguid_test_identifier_utf16_string_lower_with_invalid_last_brace,
 	          38,
 	          &utf16_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2326,7 +2326,7 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          fguid_test_identifier_utf16_string_lower_with_invalid_first_separator,
 	          36,
 	          &utf16_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2353,7 +2353,7 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          fguid_test_identifier_utf16_string_lower_with_invalid_second_separator,
 	          36,
 	          &utf16_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2380,7 +2380,7 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          fguid_test_identifier_utf16_string_lower_with_invalid_third_separator,
 	          36,
 	          &utf16_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2407,7 +2407,7 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          fguid_test_identifier_utf16_string_lower_with_invalid_fourth_separator,
 	          36,
 	          &utf16_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -3119,7 +3119,7 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower_with_invalid_first_brace,
 	          38,
 	          &utf32_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -3146,7 +3146,7 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower_with_invalid_last_brace,
 	          38,
 	          &utf32_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -3173,7 +3173,7 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower_with_invalid_first_separator,
 	          36,
 	          &utf32_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -3200,7 +3200,7 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower_with_invalid_second_separator,
 	          36,
 	          &utf32_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -3227,7 +3227,7 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower_with_invalid_third_separator,
 	          36,
 	          &utf32_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -3254,7 +3254,7 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower_with_invalid_fourth_separator,
 	          36,
 	          &utf32_string_index,
-	          LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
