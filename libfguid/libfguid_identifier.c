@@ -1608,8 +1608,6 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 	{
 		utf16_string[ string_index++ ] = (uint16_t) '{';
 	}
-	string_index = *utf16_string_index;
-
 	byte_shift = 28;
 
 	do
@@ -2271,8 +2269,6 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 	{
 		utf32_string[ string_index++ ] = (uint32_t) '{';
 	}
-	string_index = *utf32_string_index;
-
 	byte_shift = 28;
 
 	do

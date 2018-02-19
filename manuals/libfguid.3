@@ -1,4 +1,4 @@
-.Dd January 12, 2017
+.Dd February 19, 2018
 .Dt libfguid 3
 .Os libfguid
 .Sh NAME
@@ -59,7 +59,7 @@ Identifier functions
 .Ft int
 .Fn libfguid_identifier_copy_to_utf32_string "libfguid_identifier_t *identifier, uint32_t *utf32_string, size_t utf32_string_size, uint32_t string_format_flags, libfguid_error_t **error"
 .Ft int
-.Fn libfguid_identifier_copy_to_utf32_string_with_index "libfguid_identifier_t *identifier, uint32_t *utf32_string, size_t utf32_string_size, size_t *utf32_string_index, libfguid_error_t **error"
+.Fn libfguid_identifier_copy_to_utf32_string_with_index "libfguid_identifier_t *identifier, uint32_t *utf32_string, size_t utf32_string_size, size_t *utf32_string_index, uint32_t string_format_flags, libfguid_error_t **error"
 .Sh DESCRIPTION
 The
 .Fn libfguid_get_version
