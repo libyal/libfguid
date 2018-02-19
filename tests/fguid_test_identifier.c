@@ -953,7 +953,25 @@ int fguid_test_identifier_get_string_size(
 	result = libfguid_identifier_get_string_size(
 	          identifier,
 	          &string_size,
-	          0xff,
+	          0x00000000UL,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_get_string_size(
+	          identifier,
+	          &string_size,
+	          0xffffffffUL,
 	          &error );
 
 	FGUID_TEST_ASSERT_EQUAL_INT(
@@ -2430,6 +2448,31 @@ int fguid_test_identifier_copy_from_utf16_string_with_index(
 	          identifier,
 	          fguid_test_identifier_utf16_string_lower,
 	          36,
+	          NULL,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf16_string_index",
+	 utf16_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_from_utf16_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf16_string_lower,
+	          36,
 	          &utf16_string_index,
 	          0x00000000UL,
 	          &error );
@@ -3492,6 +3535,31 @@ int fguid_test_identifier_copy_from_utf32_string_with_index(
 	          fguid_test_identifier_utf32_string_lower,
 	          (size_t) SSIZE_MAX + 1,
 	          &utf32_string_index,
+	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
+	          &error );
+
+	FGUID_TEST_ASSERT_EQUAL_INT(
+	 "result",
+	 result,
+	 -1 );
+
+	FGUID_TEST_ASSERT_EQUAL_SIZE(
+	 "utf32_string_index",
+	 utf32_string_index,
+	 (size_t) 0 );
+
+	FGUID_TEST_ASSERT_IS_NOT_NULL(
+	 "error",
+	 error );
+
+	libcerror_error_free(
+	 &error );
+
+	result = libfguid_identifier_copy_from_utf32_string_with_index(
+	          identifier,
+	          fguid_test_identifier_utf32_string_lower,
+	          36,
+	          NULL,
 	          LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE,
 	          &error );
 
