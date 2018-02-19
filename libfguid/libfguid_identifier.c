@@ -392,6 +392,7 @@ int libfguid_identifier_get_string_size(
      libcerror_error_t **error )
 {
 	static char *function    = "libfguid_identifier_get_string_size";
+	uint32_t required_flags  = 0;
 	uint32_t supported_flags = 0;
 
 	if( identifier == NULL )
@@ -416,8 +417,21 @@ int libfguid_identifier_get_string_size(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
@@ -489,8 +503,9 @@ int libfguid_identifier_copy_from_utf8_string_with_index(
 	static char *function                               = "libfguid_identifier_copy_from_utf8_string_with_index";
 	size_t byte_index                                   = 0;
 	size_t node_index                                   = 0;
-	size_t string_length                                = 0;
 	size_t string_index                                 = 0;
+	size_t string_length                                = 0;
+	uint32_t required_flags                             = 0;
 	uint32_t supported_flags                            = 0;
 
 	if( identifier == NULL )
@@ -539,8 +554,21 @@ int libfguid_identifier_copy_from_utf8_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
@@ -857,6 +885,7 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 	static char *function                               = "libfguid_identifier_copy_to_utf8_string_with_index";
 	size_t string_index                                 = 0;
 	size_t string_size                                  = 0;
+	uint32_t required_flags                             = 0;
 	uint32_t supported_flags                            = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
@@ -908,11 +937,24 @@ int libfguid_identifier_copy_to_utf8_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
-	if( ( string_format_flags & supported_flags ) == 0 )
+	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
 	{
 		libcerror_error_set(
 		 error,
@@ -1150,8 +1192,9 @@ int libfguid_identifier_copy_from_utf16_string_with_index(
 	static char *function                               = "libfguid_identifier_copy_from_utf16_string_with_index";
 	size_t byte_index                                   = 0;
 	size_t node_index                                   = 0;
-	size_t string_length                                = 0;
 	size_t string_index                                 = 0;
+	size_t string_length                                = 0;
+	uint32_t required_flags                             = 0;
 	uint32_t supported_flags                            = 0;
 
 	if( identifier == NULL )
@@ -1200,8 +1243,21 @@ int libfguid_identifier_copy_from_utf16_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
@@ -1518,6 +1574,7 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 	static char *function                               = "libfguid_identifier_copy_to_utf16_string_with_index";
 	size_t string_index                                 = 0;
 	size_t string_size                                  = 0;
+	uint32_t required_flags                             = 0;
 	uint32_t supported_flags                            = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
@@ -1569,11 +1626,24 @@ int libfguid_identifier_copy_to_utf16_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
-	if( ( string_format_flags & supported_flags ) == 0 )
+	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
 	{
 		libcerror_error_set(
 		 error,
@@ -1811,8 +1881,9 @@ int libfguid_identifier_copy_from_utf32_string_with_index(
 	static char *function                               = "libfguid_identifier_copy_from_utf32_string_with_index";
 	size_t byte_index                                   = 0;
 	size_t node_index                                   = 0;
-	size_t string_length                                = 0;
 	size_t string_index                                 = 0;
+	size_t string_length                                = 0;
+	uint32_t required_flags                             = 0;
 	uint32_t supported_flags                            = 0;
 
 	if( identifier == NULL )
@@ -1861,8 +1932,21 @@ int libfguid_identifier_copy_from_utf32_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
 	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
@@ -2179,6 +2263,7 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 	static char *function                               = "libfguid_identifier_copy_to_utf32_string_with_index";
 	size_t string_index                                 = 0;
 	size_t string_size                                  = 0;
+	uint32_t required_flags                             = 0;
 	uint32_t supported_flags                            = 0;
 	uint8_t byte_value                                  = 0;
 	uint8_t node_index                                  = 0;
@@ -2230,11 +2315,24 @@ int libfguid_identifier_copy_to_utf32_string_with_index(
 
 		return( -1 );
 	}
-	supported_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
-	                | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE
+	required_flags = LIBFGUID_STRING_FORMAT_FLAG_USE_LOWER_CASE
+	               | LIBFGUID_STRING_FORMAT_FLAG_USE_UPPER_CASE;
+
+	if( ( string_format_flags & required_flags ) == 0 )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_UNSUPPORTED_VALUE,
+		 "%s: missing string format flags.",
+		 function );
+
+		return( -1 );
+	}
+	supported_flags = required_flags
 	                | LIBFGUID_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES;
 
-	if( ( string_format_flags & supported_flags ) == 0 )
+	if( ( string_format_flags & ~( supported_flags ) ) != 0 )
 	{
 		libcerror_error_set(
 		 error,
