@@ -243,6 +243,8 @@ int fguid_test_identifier_initialize(
 	          &identifier,
 	          &error );
 
+	identifier = NULL;
+
 	FGUID_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
@@ -255,10 +257,10 @@ int fguid_test_identifier_initialize(
 	libcerror_error_free(
 	 &error );
 
-	identifier = NULL;
-
 #if defined( HAVE_FGUID_TEST_MEMORY )
 
+	/* 1 fail in memory_allocate_structure
+	 */
 	for( test_number = 0;
 	     test_number < number_of_malloc_fail_tests;
 	     test_number++ )
@@ -301,6 +303,8 @@ int fguid_test_identifier_initialize(
 			 &error );
 		}
 	}
+	/* 1 fail in memset after memory_allocate_structure
+	 */
 	for( test_number = 0;
 	     test_number < number_of_memset_fail_tests;
 	     test_number++ )
