@@ -37,8 +37,11 @@
 
 #include <libfguid/extern.h>
 
+#define LIBFGUID_EXTERN_VARIABLE	LIBFGUID_EXTERN
+
 #else
-#define LIBFGUID_EXTERN	/* extern */
+#define LIBFGUID_EXTERN		/* extern */
+#define LIBFGUID_EXTERN_VARIABLE	extern
 
 #endif /* !defined( HAVE_LOCAL_LIBFGUID ) */
 
