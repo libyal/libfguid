@@ -28,13 +28,6 @@
  */
 #if !defined( HAVE_LOCAL_LIBFGUID )
 
-/* If libtool DLL support is enabled set LIBFGUID_DLL_EXPORT
- * before including libfguid/extern.h
- */
-#if defined( _WIN32 ) && defined( DLL_EXPORT )
-#define LIBFGUID_DLL_EXPORT
-#endif
-
 #include <libfguid/extern.h>
 
 #define LIBFGUID_EXTERN_VARIABLE	LIBFGUID_EXTERN

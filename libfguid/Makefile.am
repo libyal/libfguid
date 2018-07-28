@@ -1,7 +1,8 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	@LIBCERROR_CPPFLAGS@
+	@LIBCERROR_CPPFLAGS@ \
+	@LIBFGUID_DLL_EXPORT@
 
 lib_LTLIBRARIES = libfguid.la
 
