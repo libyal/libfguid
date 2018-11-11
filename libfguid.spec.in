@@ -10,15 +10,15 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 @libfguid_spec_requires@ @ax_libcerror_spec_requires@
 BuildRequires: gcc @ax_libcerror_spec_build_requires@
 
-%description
+%description -n libfguid
 Library to support the GUID/UUID format
 
-%package devel
+%package -n libfguid-devel
 Summary: Header files and libraries for developing applications for libfguid
 Group: Development/Libraries
 Requires: libfguid = %{version}-%{release}
 
-%description devel
+%description -n libfguid-devel
 Header files and libraries for developing applications for libfguid.
 
 %prep
@@ -39,13 +39,13 @@ rm -rf %{buildroot}
 
 %postun -p /sbin/ldconfig
 
-%files
+%files -n libfguid
 %defattr(644,root,root,755)
 %license COPYING
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/*.so.*
 
-%files devel
+%files -n libfguid-devel
 %defattr(644,root,root,755)
 %license COPYING
 %doc AUTHORS README ChangeLog
