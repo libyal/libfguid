@@ -9,6 +9,8 @@ Homepage: https://github.com/libyal/libfguid
 Package: libfguid
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libfguid1
+Replaces: libfguid1
 Suggests: libfguid-dbg
 Description: Library to support the GUID/UUID format
  libfguid is a library to support the GUID/UUID format.
