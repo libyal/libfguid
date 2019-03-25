@@ -13,6 +13,14 @@ BuildRequires: gcc @ax_libcerror_spec_build_requires@
 %description -n libfguid
 Library to support the GUID/UUID format
 
+%package -n libfguid-static
+Summary: Library to support the GUID/UUID format
+Group: Development/Libraries
+Requires: libfguid = %{version}-%{release}
+
+%description -n libfguid-static
+Static library version of libfguid.
+
 %package -n libfguid-devel
 Summary: Header files and libraries for developing applications for libfguid
 Group: Development/Libraries
@@ -45,11 +53,16 @@ rm -rf %{buildroot}
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/*.so.*
 
+%files -n libfguid-static
+%defattr(644,root,root,755)
+%license COPYING
+%doc AUTHORS README
+%attr(755,root,root) %{_libdir}/*.a
+
 %files -n libfguid-devel
 %defattr(644,root,root,755)
 %license COPYING
 %doc AUTHORS README
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libfguid.pc
