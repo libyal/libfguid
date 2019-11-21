@@ -25,7 +25,7 @@ then
 
 		make install DESTDIR=${PWD}/osx-pkg;
 		mkdir -p ${PWD}/osx-pkg/usr/share/doc/libfguid;
-		cp AUTHORS COPYING NEWS README ${PWD}/osx-pkg/usr/share/doc/libfguid;
+		cp AUTHORS COPYING COPYING.LESSER NEWS README ${PWD}/osx-pkg/usr/share/doc/libfguid;
 
 		pkgbuild --root osx-pkg --identifier com.github.libyal.libfguid --version ${VERSION} --ownership recommended ../libfguid-${VERSION}.pkg;
 	fi
