@@ -27,7 +27,6 @@
 #include <stdlib.h>
 #endif
 
-#include "fguid_test_libcerror.h"
 #include "fguid_test_libfguid.h"
 #include "fguid_test_macros.h"
 #include "fguid_test_unused.h"
