@@ -30,7 +30,11 @@
 
 #include <libfguid/extern.h>
 
+#if defined( __CYGWIN__ )
+#define LIBFGUID_EXTERN_VARIABLE	extern
+#else
 #define LIBFGUID_EXTERN_VARIABLE	LIBFGUID_EXTERN
+#endif
 
 #else
 #define LIBFGUID_EXTERN		/* extern */
