@@ -2,7 +2,7 @@ AC_PREREQ([2.71])
 
 AC_INIT(
  [libfguid],
- [20230110],
+ [20230416],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
