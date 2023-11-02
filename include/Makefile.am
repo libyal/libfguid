@@ -18,9 +18,9 @@ MAINTAINERCLEANFILES = \
 	Makefile.in
 
 distclean: clean
-	/bin/rm -f libfguid.h
-	/bin/rm -f libfguid/definitions.h
-	/bin/rm -f libfguid/features.h
-	/bin/rm -f libfguid/types.h
-	/bin/rm -f Makefile
+	-rm -f libfguid.h
+	-rm -f libfguid/definitions.h
+	-rm -f libfguid/features.h
+	-rm -f libfguid/types.h
+	-rm -f Makefile
 
