@@ -14,13 +14,11 @@ EXTRA_DIST = \
 	libfguid/features.h.in \
 	libfguid/types.h.in
 
-MAINTAINERCLEANFILES = \
+DISTCLEANFILES = \
+	libfguid.h \
+	libfguid/definitions.h \
+	libfguid/features.h \
+	libfguid/types.h \
+	Makefile \
 	Makefile.in
-
-distclean: clean
-	-rm -f libfguid.h
-	-rm -f libfguid/definitions.h
-	-rm -f libfguid/features.h
-	-rm -f libfguid/types.h
-	-rm -f Makefile
 

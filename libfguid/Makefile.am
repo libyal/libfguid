@@ -1,6 +1,6 @@
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/include \
-	-I$(top_srcdir)/common \
+	-I../include -I$(top_srcdir)/include \
+	-I../common -I$(top_srcdir)/common \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBFGUID_DLL_EXPORT@
 
@@ -27,13 +27,11 @@ EXTRA_DIST = \
 	libfguid.rc \
 	libfguid.rc.in
 
-MAINTAINERCLEANFILES = \
+DISTCLEANFILES = \
+	libfguid_definitions.h \
+	libfguid.rc \
+	Makefile \
 	Makefile.in
-
-distclean: clean
-	-rm -f libfguid_definitions.h
-	-rm -f libfguid.rc
-	-rm -f Makefile
 
 sources-local: $(BUILT_SOURCES)
 
