@@ -31,14 +31,17 @@
  */
 #if defined( LIBFGUID_DLL_EXPORT )
 #define LIBFGUID_EXTERN __declspec(dllexport)
+#define LIBFGUID_EXTERN_VARIABLE extern __declspec(dllexport)
 
 #elif defined( LIBFGUID_DLL_IMPORT )
-#define LIBFGUID_EXTERN extern __declspec(dllimport)
+#define LIBFGUID_EXTERN __declspec(dllimport)
+#define LIBFGUID_EXTERN_VARIABLE extern __declspec(dllimport)
 
 #else
 #define LIBFGUID_EXTERN extern
+#define LIBFGUID_EXTERN_VARIABLE extern
 
-#endif
+#endif /* defined( LIBFGUID_DLL_EXPORT ) */
 
 #endif /* !defined( _LIBFGUID_EXTERN_H ) */
 
