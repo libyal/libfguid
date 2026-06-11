@@ -24,6 +24,19 @@
 
 #include <common.h>
 
+#if !defined( __CYGWIN__ ) && !defined( _WIN32 ) && defined( __has_attribute )
+#if __has_attribute( visibility )
+#define LIBFGUID_INTERNAL	__attribute__((visibility("hidden"))) extern
+
+#else
+#define LIBFGUID_INTERNAL	extern
+
+#endif /* __has_attribute( visibility ) */
+#else
+#define LIBFGUID_INTERNAL	extern
+
+#endif /* !defined( __CYGWIN__ ) && !defined( _WIN32 ) && defined( __has_attribute ) */
+
 /* Define HAVE_LOCAL_LIBFGUID for local use of libfguid
  */
 #if !defined( HAVE_LOCAL_LIBFGUID )
@@ -32,7 +45,7 @@
 
 #else
 #define LIBFGUID_EXTERN		/* extern */
-#define LIBFGUID_EXTERN_VARIABLE	extern
+#define LIBFGUID_EXTERN_VARIABLE	LIBFGUID_INTERNAL
 
 #endif /* !defined( HAVE_LOCAL_LIBFGUID ) */
 

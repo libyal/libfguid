@@ -1,6 +1,6 @@
-.Dd March 25, 2019
-.Dt libfguid 3
-.Os libfguid
+.Dd June 11, 2026
+.Dt LIBFGUID 3
+.Os
 .Sh NAME
 .Nm libfguid.h
 .Nd Library to support the GUID/UUID format
@@ -8,75 +8,244 @@
 .In libfguid.h
 .Pp
 Support functions
+.nf
 .Ft const char *
-.Fn libfguid_get_version "void"
+.Fo libfguid_get_version
+.Fa "void"
+.Fc
+.fi
 .Pp
 Error functions
+.nf
 .Ft void
-.Fn libfguid_error_free "libfguid_error_t **error"
+.Fo libfguid_error_free
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_error_fprint "libfguid_error_t *error" "FILE *stream"
+.Fo libfguid_error_fprint
+.Fa "libfguid_error_t *error"
+.Fa "FILE *stream"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_error_sprint "libfguid_error_t *error" "char *string" "size_t size"
+.Fo libfguid_error_sprint
+.Fa "libfguid_error_t *error"
+.Fa "char *string"
+.Fa "size_t size"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_error_backtrace_fprint "libfguid_error_t *error" "FILE *stream"
+.Fo libfguid_error_backtrace_fprint
+.Fa "libfguid_error_t *error"
+.Fa "FILE *stream"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_error_backtrace_sprint "libfguid_error_t *error" "char *string" "size_t size"
+.Fo libfguid_error_backtrace_sprint
+.Fa "libfguid_error_t *error"
+.Fa "char *string"
+.Fa "size_t size"
+.Fc
+.fi
 .Pp
 Identifier functions
+.nf
 .Ft int
-.Fn libfguid_identifier_initialize "libfguid_identifier_t **identifier" "libfguid_error_t **error"
+.Fo libfguid_identifier_initialize
+.Fa "libfguid_identifier_t **identifier"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_free "libfguid_identifier_t **identifier" "libfguid_error_t **error"
+.Fo libfguid_identifier_free
+.Fa "libfguid_identifier_t **identifier"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_byte_stream "libfguid_identifier_t *identifier" "const uint8_t *byte_stream" "size_t byte_stream_size" "int byte_order" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_byte_stream
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint8_t *byte_stream"
+.Fa "size_t byte_stream_size"
+.Fa "int byte_order"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_byte_stream "libfguid_identifier_t *identifier" "uint8_t *byte_stream" "size_t byte_stream_size" "int byte_order" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_byte_stream
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint8_t *byte_stream"
+.Fa "size_t byte_stream_size"
+.Fa "int byte_order"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_get_string_size "libfguid_identifier_t *identifier" "size_t *string_size" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_get_string_size
+.Fa "libfguid_identifier_t *identifier"
+.Fa "size_t *string_size"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_utf8_string "libfguid_identifier_t *identifier" "const uint8_t *utf8_string" "size_t utf8_string_length" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_utf8_string
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint8_t *utf8_string"
+.Fa "size_t utf8_string_length"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_utf8_string_with_index "libfguid_identifier_t *identifier" "const uint8_t *utf8_string" "size_t utf8_string_length" "size_t *utf8_string_index" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_utf8_string_with_index
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint8_t *utf8_string"
+.Fa "size_t utf8_string_length"
+.Fa "size_t *utf8_string_index"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_utf8_string "libfguid_identifier_t *identifier" "uint8_t *utf8_string" "size_t utf8_string_size" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_utf8_string
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint8_t *utf8_string"
+.Fa "size_t utf8_string_size"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_utf8_string_with_index "libfguid_identifier_t *identifier" "uint8_t *utf8_string" "size_t utf8_string_size" "size_t *utf8_string_index" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_utf8_string_with_index
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint8_t *utf8_string"
+.Fa "size_t utf8_string_size"
+.Fa "size_t *utf8_string_index"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_utf16_string "libfguid_identifier_t *identifier" "const uint16_t *utf16_string" "size_t utf16_string_length" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_utf16_string
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint16_t *utf16_string"
+.Fa "size_t utf16_string_length"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_utf16_string_with_index "libfguid_identifier_t *identifier" "const uint16_t *utf16_string" "size_t utf16_string_length" "size_t *utf16_string_index" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_utf16_string_with_index
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint16_t *utf16_string"
+.Fa "size_t utf16_string_length"
+.Fa "size_t *utf16_string_index"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_utf16_string "libfguid_identifier_t *identifier" "uint16_t *utf16_string" "size_t utf16_string_size" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_utf16_string
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint16_t *utf16_string"
+.Fa "size_t utf16_string_size"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_utf16_string_with_index "libfguid_identifier_t *identifier" "uint16_t *utf16_string" "size_t utf16_string_size" "size_t *utf16_string_index" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_utf16_string_with_index
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint16_t *utf16_string"
+.Fa "size_t utf16_string_size"
+.Fa "size_t *utf16_string_index"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_utf32_string "libfguid_identifier_t *identifier" "const uint32_t *utf32_string" "size_t utf32_string_length" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_utf32_string
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint32_t *utf32_string"
+.Fa "size_t utf32_string_length"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_from_utf32_string_with_index "libfguid_identifier_t *identifier" "const uint32_t *utf32_string" "size_t utf32_string_length" "size_t *utf32_string_index" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_from_utf32_string_with_index
+.Fa "libfguid_identifier_t *identifier"
+.Fa "const uint32_t *utf32_string"
+.Fa "size_t utf32_string_length"
+.Fa "size_t *utf32_string_index"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_utf32_string "libfguid_identifier_t *identifier" "uint32_t *utf32_string" "size_t utf32_string_size" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_utf32_string
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint32_t *utf32_string"
+.Fa "size_t utf32_string_size"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
+.nf
 .Ft int
-.Fn libfguid_identifier_copy_to_utf32_string_with_index "libfguid_identifier_t *identifier" "uint32_t *utf32_string" "size_t utf32_string_size" "size_t *utf32_string_index" "uint32_t string_format_flags" "libfguid_error_t **error"
+.Fo libfguid_identifier_copy_to_utf32_string_with_index
+.Fa "libfguid_identifier_t *identifier"
+.Fa "uint32_t *utf32_string"
+.Fa "size_t utf32_string_size"
+.Fa "size_t *utf32_string_index"
+.Fa "uint32_t string_format_flags"
+.Fa "libfguid_error_t **error"
+.Fc
+.fi
 .Sh DESCRIPTION
 The
 .Fn libfguid_get_version
 function is used to retrieve the library version.
 .Sh RETURN VALUES
-Most of the functions return NULL or \-1 on error, dependent on the return type.
-For the actual return values see "libfguid.h".
+Most of the functions return NULL or \-1 on error, dependent on the return \
+type.
+For the actual return values see
+.In libfguid.h .
 .Sh ENVIRONMENT
 None
 .Sh FILES
 None
+.Sh SEE ALSO
+.In libfguid.h
+.Sh AUTHORS
+.An Joachim Metz <joachim.metz@gmail.com>
 .Sh BUGS
-Please report bugs of any kind on the project issue tracker: https://github.com/libyal/libfguid/issues
-.Sh AUTHOR
-These man pages are generated from "libfguid.h".
+Please report bugs of any kind on the project issue tracker: \
+https://github.com/libyal/libfguid/issues
 .Sh COPYRIGHT
 Copyright (C) 2010-2026, Joachim Metz <joachim.metz@gmail.com>.
 .sp
 This is free software; see the source for copying conditions.
-There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-.Sh SEE ALSO
-the libfguid.h include file
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A \
+PARTICULAR PURPOSE.
